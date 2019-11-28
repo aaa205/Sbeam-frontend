@@ -1,0 +1,34 @@
+div{
+
+}
+
+a:link {
+    text-decoration: none;
+    color: white;
+}
+
+a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+h1 h2 h3 h4 h5 h6{
+    color: white;
+}
+
+.card-title {
+    letter-spacing: .01rem;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.card-subtitle {
+    color: hsla(0, 0%, 100%, .7);
+}

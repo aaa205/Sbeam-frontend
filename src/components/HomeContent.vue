@@ -5,37 +5,78 @@
                 <b-carousel-slide
                         caption="First slide"
                         img-src="https://picsum.photos/1024/480/?image=10"
-                        content-visible-up="md"
+                        content-visible-up="sm"
                 ></b-carousel-slide>
             </b-carousel>
+            <!--新发布游戏-->
+            <b-row>
+                <b-col>
+                    <h6 class=" row-title text-left">新发布游戏</h6>
+                </b-col>
+            </b-row>
+            <b-row>
+                <game-card
+                        v-for="card in cards"
+                        v-bind:key="card.id"
+                        v-bind:name="card.name"
+                        v-bind:img-src="card.imgSrc"
+                        v-bind:price="card.price"
+                        v-bind:subtitle="card.subtitle"
+                ></game-card>
+            </b-row>
+            <!--每周免费游戏-->
+            <b-row>
+                <b-col><h6 class="row-title text-left">每周免费游戏</h6></b-col>
+            </b-row>
+            <b-row>
+                <b-col>
+                    <big-game-card></big-game-card>
+                </b-col>
+                <b-col>
+                    <big-game-card></big-game-card>
+                </b-col>
+            </b-row>
         </b-container>
-        <b-row>
-            <game-card
-                    v-for="card in cards"
-                    v-bind:key="card.id"
-                    v-bind:name="card.name"
-                    v-bind:img-src="card.imgSrc"
-                    v-bind:price="card.price"
-            ></game-card>
-        </b-row>
     </div>
 
 </template>
 
 <script>
     import GameCard from "@/components/GameCard";
-
+    import BigGameCard from "@/components/BigGameCard";
     export default {
         name: "HomeContent",
-        components: {GameCard},
+        components: {GameCard,BigGameCard},
         data() {
             return {
                 cards: [
                     {
                         id: 1,
-                        name: 'Shenmu3',
+                        name: 'Shenmue 3',
                         price: 59,
-                        imgSrc: 'https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640'
+                        imgSrc: 'https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640',
+                        subtitle: 'subtitle'
+                    },
+                    {
+                        id: 2,
+                        name: 'Shenmue 3',
+                        price: 59,
+                        imgSrc: 'https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640',
+                        subtitle: 'subtitle'
+                    },
+                    {
+                        id: 3,
+                        name: 'Shenmue 3',
+                        price: 59,
+                        imgSrc: 'https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640',
+                        subtitle: 'subtitle'
+                    },
+                    {
+                        id: 4,
+                        name: 'Shenmue 3',
+                        price: 59,
+                        imgSrc: 'https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640',
+                        subtitle: 'subtitle'
                     }
                 ]
             }
@@ -44,5 +85,9 @@
 </script>
 
 <style scoped>
-
+    .row-title {
+        color: white;
+        font-size: 1.17em;
+        margin-top: 3%;
+    }
 </style>
