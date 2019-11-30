@@ -11,7 +11,7 @@
             <!--新发布游戏-->
             <b-row>
                 <b-col>
-                    <h6 class=" row-title text-left">新发布游戏</h6>
+                    <h6 class="row-title text-left">新发布游戏</h6>
                 </b-col>
             </b-row>
             <b-row>
@@ -29,13 +29,20 @@
                 <b-col><h6 class="row-title text-left">每周免费游戏</h6></b-col>
             </b-row>
             <b-row>
-                <b-col>
-                    <big-game-card></big-game-card>
-                </b-col>
-                <b-col>
-                    <big-game-card></big-game-card>
-                </b-col>
+                <big-game-card></big-game-card>
+                <big-game-card></big-game-card>
             </b-row>
+            <!--大图推荐-->
+
+            <!--热门分类-->
+            <b-row>
+                <b-col class="row-title text-left">热门分类</b-col>
+            </b-row>
+            <b-row>
+
+            </b-row>
+            <!--商城目录-->
+            <!--网页底-->
         </b-container>
     </div>
 
@@ -44,9 +51,10 @@
 <script>
     import GameCard from "@/components/GameCard";
     import BigGameCard from "@/components/BigGameCard";
+
     export default {
         name: "HomeContent",
-        components: {GameCard,BigGameCard},
+        components: {GameCard, BigGameCard},
         data() {
             return {
                 cards: [
@@ -54,14 +62,14 @@
                         id: 1,
                         name: 'Shenmue 3',
                         price: 59,
-                        imgSrc: 'https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640',
+                        imgSrc: require('../assets/img/game-card/Shenmue 3.jpg'),
                         subtitle: 'subtitle'
                     },
                     {
                         id: 2,
-                        name: 'Shenmue 3',
+                        name: 'Fortnite',
                         price: 59,
-                        imgSrc: 'https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640',
+                        imgSrc: require('../assets/img/game-card/Fortnite.jpg'),
                         subtitle: 'subtitle'
                     },
                     {
