@@ -6,9 +6,11 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './css/scaffolding.css'
 import HomeContent from "@/components/HomeContent";
 import VueRouter from "vue-router";
-
+import axios from 'axios'
+import VueAxios from "vue-axios";
 
 Vue.use(BootstrapVue)
+Vue.use(VueAxios,axios)
 Vue.config.productionTip = false
 const routes=[
     {path:'/',component:HomeContent}

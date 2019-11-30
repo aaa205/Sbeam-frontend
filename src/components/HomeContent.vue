@@ -57,6 +57,8 @@
         components: {GameCard, BigGameCard},
         data() {
             return {
+                carousel: null,
+
                 cards: [
                     {
                         id: 1,
