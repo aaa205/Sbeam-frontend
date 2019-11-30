@@ -5,7 +5,6 @@
             <div class="col-12 col-md-8 text-left">
                 <div class="login_box">
                     <b-row>
-
                         <!--登录-->
                         <b-col class="col-12 col-md-6 ">
                             <h5>登录</h5>
@@ -42,7 +41,7 @@
                             </p>
                             <b-row class="btn_md_bottom">
                                 <div class="col-12 col-md-6">
-                                    <b-button variant="secondary" class="btn-block">加入 Sbeam</b-button>
+                                    <b-button variant="secondary" class="btn-block" to="/join">加入 Sbeam</b-button>
                                 </div>
                             </b-row>
                         </b-col>
@@ -52,26 +51,17 @@
             </div>
             <!--建议-->
             <div class="col-12 col-md-4">
-                <div class="advice_box text-left">
-                    <h5>为什么加入 SBEAM？</h5>
-                    <b-list-group flush="true" class="why_list">
-                        <b-list-group-item class="why_item">购买和下载完整零售游戏</b-list-group-item>
-                        <b-list-group-item class="why_item">加入 Sbeam 社区</b-list-group-item>
-                        <b-list-group-item class="why_item">游戏时与好友聊天</b-list-group-item>
-                        <b-list-group-item class="why_item">在任何电脑上都能玩</b-list-group-item>
-                        <b-list-group-item class="why_item">安排游戏、比赛或 LAN 聚会</b-list-group-item>
-                        <b-list-group-item class="why_item">获取自动游戏更新以及更多！</b-list-group-item>
-                    </b-list-group>
-
-                </div>
+                <WhyBox></WhyBox>
             </div>
         </b-row>
     </b-container>
 </template>
 
 <script>
+    import WhyBox from "@/components/WhyBox";
     export default {
         name: "LoginContent",
+        components: {WhyBox},
         data() {
             return {
                 //登录数据
@@ -95,10 +85,7 @@
         padding: 4% 4% 8% 4%;
     }
 
-    .advice_box {
-        background: #2a2a2a;
-        padding: 4% 4% 8% 4%;
-    }
+
 
     @media (min-width: 768px) {
         .btn_md_bottom {
@@ -118,19 +105,9 @@
         color: #bcbcbc;
     }
 
-    .why_list {
-        font-size: 13px;
-        margin-block-start: 1em;
-        margin-block-end: 1em;
-        margin-inline-start: 0px;
-        margin-inline-end: 0px;
-        color: #bcbcbc;
-    }
 
-    .why_item {
-        background-color: #2a2a2a;
-    }
-    .login_content{
+
+    .login_content {
         margin-top: 6%;
         margin-bottom: 5%;
     }

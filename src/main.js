@@ -9,13 +9,16 @@ import VueRouter from "vue-router";
 import axios from 'axios'
 import VueAxios from "vue-axios";
 import LoginContent from "@/components/LoginContent";
+import JoinContent from "@/components/JoinContent";
 
 Vue.use(BootstrapVue)
 Vue.use(VueAxios,axios)
 Vue.config.productionTip = false
 const routes=[
     {path:'/',component:HomeContent},
-    {path: '/login',component: LoginContent}
+    {path: '/login',component: LoginContent},
+    {path:'/join',component:JoinContent}
+
 ]
 const router=new VueRouter({
     routes
