@@ -30,7 +30,6 @@
     .card-content {
         color: white;
         font-size: .88rem;
-
     }
 
     h5 {
