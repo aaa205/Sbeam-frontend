@@ -7,11 +7,11 @@
                     <b-row>
                         <b-col class="col-12 col-md-7">
                             <h5>创建账户</h5>
-                            <b-form>
-                                <b-form-group label="账号名" label-class="text-white" label-for="input-1">
+                            <b-form @submit="onSubmit">
+                                <b-form-group label="账户名" label-class="text-white" label-for="input-1">
                                     <b-form-input
                                             id="input-1"
-                                            v-model="form.account"
+                                            v-model="form.name"
                                             required
                                             placeholder="输入账户名">
                                     </b-form-input>
@@ -35,7 +35,7 @@
                                 <b-form-group label="再次输入密码" label-class="text-white" label-for="input-4">
                                     <b-form-input
                                             id="input-4"
-                                            v-model="form.password_repeated"
+                                            v-model="form.repeat_password"
                                             required
                                             placeholder="输入密码">
                                     </b-form-input>
@@ -60,6 +60,7 @@
 
 <script>
     import WhyBox from "@/components/WhyBox";
+    import {register} from "@/apis/api";
 
     export default {
         name: "JoinContent",
@@ -67,11 +68,20 @@
         data() {
             return {
                 form: {
-                    account: '',
+                    name: '',
                     email: '',
                     password: '',
-                    password_repeated: ''
+                    repeat_password: ''
                 }
+            }
+        },
+        methods: {
+            onSubmit() {
+                register(this.form).then(resp => {
+                    if (resp.status === 200) {
+                        window.console.log("注册成功")
+                    }
+                })
             }
         }
     }
