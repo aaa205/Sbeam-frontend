@@ -12,12 +12,12 @@
                     <b-nav-item href="#">商城</b-nav-item>
                 </b-navbar-nav>
                 <b-nav-form class="mx-auto">
-                    <b-form-input size="sm" type="search" placeholder="搜索"></b-form-input>
+                    <input type="text" class="sb-input-text" placeholder="搜索">
+                    <input type="button" class=" btn sb-btn" value="ok">
                 </b-nav-form>
                 <b-navbar-nav>
                     <b-nav-item>购物车</b-nav-item>
-                    <b-nav-item href="#">注册</b-nav-item>
-                    <b-nav-item href="#">登录</b-nav-item>
+                    <b-nav-item to="/login">登录</b-nav-item>
                 </b-navbar-nav>
             </b-collapse>
         </b-navbar>

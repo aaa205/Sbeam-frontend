@@ -1,5 +1,14 @@
 div{
+    letter-spacing: .01rem;
+    line-height: 1.4;
+    font-weight: 500;
+}
 
+input[type="text"]{
+    border: 1px solid;
+    height: 32px;
+    border-radius: 5px;
+    padding-left: 8px;
 }
 
 a:link {
@@ -21,6 +30,7 @@ a:active {
 }
 h1 h2 h3 h4 h5 h6{
     color: white;
+
 }
 
 .card-title {
@@ -31,4 +41,15 @@ h1 h2 h3 h4 h5 h6{
 
 .card-subtitle {
     color: hsla(0, 0%, 100%, .7);
+}
+
+.sb-btn{
+    height: 32px;
+    border: none;
+    background-color: rgba(150, 150, 150);
+    margin-left: 3px;
+    line-height: 1.1em;
+}
+.sb-btn:hover {
+    background-color: rgba(188,188,188);
 }

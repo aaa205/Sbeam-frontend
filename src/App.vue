@@ -7,6 +7,7 @@
 
 <script>
     import NavBar from "@/components/NavBar";
+
     export default {
         name: 'app',
         components: {NavBar}
@@ -20,6 +21,5 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
         color: #2a2a2a;
-        background: #121212;
     }
 </style>
