@@ -23,7 +23,7 @@
                 <b-col md="3">
                     <div class="filters_wrapper">
                         <header>
-                            <h5 class="bro-title">筛选器</h5>
+                            <h6 class="bro-title">筛选器</h6>
                             <hr class="filters_line"/>
                         </header>
                         <!--TAG-->
