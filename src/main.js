@@ -11,6 +11,7 @@ import LoginContent from "@/components/LoginContent";
 import JoinContent from "@/components/JoinContent";
 import BrowseContent from "@/components/BrowseContent";
 import './css/scaffolding.css'
+
 Vue.use(BootstrapVue)
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
@@ -19,7 +20,6 @@ const routes = [
     {path: '/login', component: LoginContent},
     {path: '/join', component: JoinContent},
     {path: '/browse', component: BrowseContent}
-
 ]
 const router = new VueRouter({
     routes

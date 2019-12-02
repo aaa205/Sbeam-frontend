@@ -4,10 +4,10 @@
             <div>
                 <b-img-lazy v-bind:src="imgSrc" class="cardImg"></b-img-lazy>
             </div>
-            <div class="text-left">
-                <span class="card_title">{{name}}</span><br>
-                <span class="card_subtitle">{{developer}} | {{publisher}}</span><br>
-                <span class="card_title">US${{price}}</span>
+            <div class="text-left info_box">
+                <span class="card_title">{{name}}</span>
+                <span class="card_subtitle">{{developer}} | {{publisher}}</span>
+                <span class="card_price">US${{price}}</span>
             </div>
         </a>
     </div>
@@ -46,6 +46,10 @@
         max-width: 100%;
         background-position: center;
         clip: rect(80px 80px 690px 833px);
+    }
+    .info_box{
+        margin-top: 3%;
+        margin-bottom: 6%;
     }
 
 </style>
