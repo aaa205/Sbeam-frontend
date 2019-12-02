@@ -5,17 +5,20 @@
                 <b-col md="9">
                     <!--游戏数-->
                     <b-row>
-                        <b-col><h6 class="text-left bro-title">{{total}} 款游戏</h6></b-col>
+                        <b-col><h6 class="text-left bro-title">{{this.cards.length}} 款游戏</h6></b-col>
                     </b-row>
                     <!--游戏展示-->
                     <b-row class="cards_wrapper">
                         <game-card
                                 v-for="card in cards"
+                                v-bind:id="card.id"
                                 v-bind:key="card.id"
                                 v-bind:name="card.name"
-                                v-bind:img-src="card.imgSrc"
+                                v-bind:img-src="card.card_img"
+                                v-bind:logo-src="card.logo_img"
                                 v-bind:price="card.price"
-                                v-bind:subtitle="card.subtitle"
+                                v-bind:developer="card.developer"
+                                v-bind:publisher="card.publisher"
                         ></game-card>
                     </b-row>
                 </b-col>
@@ -31,7 +34,7 @@
                             <h6 class="bro-title">分类</h6>
                         </div>
                         <b-collapse id="collapse-0">
-                            <b-list-group flush="true" class="filters_list">
+                            <b-list-group flush class="filters_list">
                                 <a href="#">
                                     <b-list-group-item class="filters_item">动作</b-list-group-item>
                                 </a>
@@ -59,7 +62,7 @@
                             <h6 class="bro-title">特色</h6>
                         </div>
                         <b-collapse id="collapse-1">
-                            <b-list-group flush="true" class="filters_list">
+                            <b-list-group flush class="filters_list">
                                 <a href="#">
                                     <b-list-group-item class="filters_item">单人游戏</b-list-group-item>
                                 </a>
@@ -78,50 +81,31 @@
 
 <script>
     import GameCard from "@/components/GameCard";
+    import {getGameCards} from "@/apis/api";
 
     export default {
         name: "BrowseContent",
         data() {
             return {
-                selected: null,
-                total: 0,
-                cards: [
-                    {
-                        id: 1,
-                        name: 'Shenmue 3',
-                        price: 59,
-                        imgSrc: require('../assets/img/game-card/Shenmue 3.jpg'),
-                        subtitle: 'subtitle'
-                    },
-                    {
-                        id: 2,
-                        name: 'Fortnite',
-                        price: 59,
-                        imgSrc: require('../assets/img/game-card/Fortnite.jpg'),
-                        subtitle: 'subtitle'
-                    },
-                    {
-                        id: 3,
-                        name: 'Shenmue 3',
-                        price: 59,
-                        imgSrc: 'https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640',
-                        subtitle: 'subtitle'
-                    },
-                    {
-                        id: 4,
-                        name: 'Shenmue 3',
-                        price: 59,
-                        imgSrc: 'https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640',
-                        subtitle: 'subtitle'
-                    },
-                    {
-                        id: 5,
-                        name: 'Shenmue 3',
-                        price: 59,
-                        imgSrc: 'https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640',
-                        subtitle: 'subtitle'
+                cards: []
+            }
+        },
+        mounted: function () {
+            this.getAllGameCards()
+        },
+        methods: {
+            getAllGameCards() {
+                getGameCards().then(resp => {
+                    if (resp.status != 200)
+                        window.console.log(resp.data)
+                    //转换图片路径
+                    let res = resp.data
+                    for (let i = 0, l = res.length; i < l; i++) {
+                        res[i].card_img = require('../assets/' + res[i].card_img)
+                        res[i].logo_img = require('../assets/' + res[i].logo_img)
                     }
-                ]
+                    this.cards=res
+                })
             }
         },
         components: {
@@ -131,7 +115,7 @@
 </script>
 
 <style scoped>
-    .bro-title{
+    .bro-title {
         color: white;
     }
 

@@ -5,9 +5,9 @@
                 <b-img-lazy v-bind:src="imgSrc" class="cardImg"></b-img-lazy>
             </div>
             <div class="text-left">
-                <span class="card-title">{{name}}</span><br>
-                <span class="card-subtitle">{{subtitle}}</span><br>
-                <span class="card-title">US${{price}}</span>
+                <span class="card_title">{{name}}</span><br>
+                <span class="card_subtitle">{{developer}} | {{publisher}}</span><br>
+                <span class="card_title">US${{price}}</span>
             </div>
         </a>
     </div>
@@ -21,8 +21,9 @@
             name: String,
             price: Number,
             imgSrc: String,
-            subtitle: String,
-            logoSrc:String
+            logoSrc: String,
+            publisher: String,
+            developer: String
         }
     }
 </script>

@@ -78,9 +78,13 @@
         methods: {
             onSubmit() {
                 register(this.form).then(resp => {
-                    if (resp.status === 200) {
-                        window.console.log("注册成功")
-                    }
+                    //todo
+                    if (resp.status != 200)
+                        window.console.log(resp.data)
+                    if (resp.data.ret == 0)
+                        window.console.log('register successfully')
+                    else
+                        window.console.log(resp.data.msg)
                 })
             }
         }

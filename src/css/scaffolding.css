@@ -25,17 +25,21 @@ h1 h2 h3 h4 h5 h6 {
 
 }
 
-.card-title {
+.card_title {
     letter-spacing: .01rem;
     line-height: 1.4;
     font-weight: 500;
 }
 
-.card-subtitle {
+.card_subtitle {
     color: hsla(0, 0%, 100%, .7);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
 }
 
-.row-title {
+.row_title {
     color: white;
     font-size: 1.17em;
     margin-top: 3%;

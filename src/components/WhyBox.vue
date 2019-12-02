@@ -1,7 +1,7 @@
 <template>
     <div class="why_box text-left">
         <h5>为什么加入 SBEAM？</h5>
-        <b-list-group flush="true" class="filters_list">
+        <b-list-group flush class="filters_list">
             <b-list-group-item class="filters_item">购买和下载完整零售游戏</b-list-group-item>
             <b-list-group-item class="filters_item">加入 Sbeam 社区</b-list-group-item>
             <b-list-group-item class="filters_item">游戏时与好友聊天</b-list-group-item>

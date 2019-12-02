@@ -11,7 +11,7 @@
             <!--新发布游戏-->
             <b-row>
                 <b-col>
-                    <h6 class="row-title text-left">新发布游戏</h6>
+                    <h6 class="row_title text-left">新发布游戏</h6>
                 </b-col>
             </b-row>
             <b-row>
@@ -26,7 +26,7 @@
             </b-row>
             <!--每周免费游戏-->
             <b-row>
-                <b-col><h6 class="row-title text-left">每周免费游戏</h6></b-col>
+                <b-col><h6 class="row_title text-left">每周免费游戏</h6></b-col>
             </b-row>
             <b-row>
                 <big-game-card></big-game-card>
@@ -36,7 +36,7 @@
 
             <!--热门分类-->
             <b-row>
-                <b-col class="row-title text-left">热门分类</b-col>
+                <b-col class="row_title text-left">热门分类</b-col>
             </b-row>
             <b-row>
 
@@ -57,7 +57,6 @@
         data() {
             return {
                 carousel: null,
-
                 cards: [
                     {
                         id: 1,
