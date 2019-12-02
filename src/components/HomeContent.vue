@@ -1,6 +1,7 @@
 <template>
   <div>
     <b-container>
+      <home-carousel></home-carousel>
       <!-- <b-carousel>
                 <b-carousel-slide
                         caption="First slide"
@@ -10,42 +11,22 @@
       </b-carousel>-->
 
       <!-- 轮播图 -->
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" :src="imgSrc[0]" alt="First slide" />
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" :src="imgSrc[1]" alt="Second slide" />
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" :src="imgSrc[2]" alt="Third slide" />
-          </div>
-        </div>
-        <a
-          class="carousel-control-prev"
-          href="#carouselExampleControls"
-          role="button"
-          data-slide="prev"
+      <!-- <div class="sb-carousel">
+        <b-carousel
+          id="carousel-1"
+          v-model="slide"
+          :interval="10000"
+          controls
+          background="#000"
+          img-width="1024"
+          img-height="480"
+          style="text-shadow: 1px 1px 2px #333;"
         >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a
-          class="carousel-control-next"
-          href="#carouselExampleControls"
-          role="button"
-          data-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+          <b-carousel-slide :img-src="imgSrc[0]" class="sb-carousel-size"></b-carousel-slide>
+          <b-carousel-slide :img-src="imgSrc[1]" class="sb-carousel-size"></b-carousel-slide>
+          <b-carousel-slide :img-src="imgSrc[2]" class="sb-carousel-size"></b-carousel-slide>
+        </b-carousel>
+      </div> -->
 
       <!--新发布游戏-->
       <b-row>
@@ -71,10 +52,57 @@
       </b-row>
       <b-row>
         <b-col>
-          <big-game-card></big-game-card>
+          <big-game-card class="sb-game-card">
+            <img src alt />
+          </big-game-card>
         </b-col>
         <b-col>
-          <big-game-card></big-game-card>
+          <big-game-card class="sb-game-card">
+            <img src alt />
+          </big-game-card>
+        </b-col>
+      </b-row>
+      <!-- 预购（巨幕） -->
+      <b-row>
+        <b-col>
+          <h6 class="row-title text-left">预购</h6>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
+          <b-row>
+            <b-col>
+              <h6 class="row-title text-left">Games</h6>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col>
+              <games-jumbotron></games-jumbotron>
+            </b-col>
+          </b-row>
+        </b-col>
+      </b-row>
+      <!-- 热门分类 -->
+      <b-row>
+        <b-col>
+          <h6 class="row-title text-left">热门分类</h6>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
+          <classification-bar></classification-bar>
+        </b-col>
+      </b-row>
+
+      <!-- Games -->
+      <b-row>
+        <b-col>
+          <h6 class="row-title text-left">Games</h6>
+        </b-col>
+      </b-row>
+      <b-row>
+        <b-col>
+          <games-jumbotron></games-jumbotron>
         </b-col>
       </b-row>
     </b-container>
@@ -84,9 +112,12 @@
 <script>
 import GameCard from "@/components/GameCard";
 import BigGameCard from "@/components/BigGameCard";
+import ClassificationBar from "@/components/ClassificationBar";
+import GamesJumbotron from "@/components/GamesJumbotron";
+import HomeCarousel from "@/components/HomeCarousel";
 export default {
   name: "HomeContent",
-  components: { GameCard, BigGameCard },
+  components: { GameCard, BigGameCard, ClassificationBar, GamesJumbotron, HomeCarousel },
   data() {
     return {
       cards: [
@@ -127,7 +158,10 @@ export default {
         require("../assets/img/game-logo/Metro Exodus.png"),
         require("../assets/img/game-logo/Borderlands 3.png"),
         require("../assets/img/game-logo/Fortnite.png")
-      ]
+      ],
+      bgSrc: [require("../assets/img/game-logo/Fortnite.png")],
+      classificationSrc: ["#"],
+      classificationText: ["动作", "角色扮演", "射击", "战略", "解密", "体育"]
     };
   }
 };
