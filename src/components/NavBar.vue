@@ -9,7 +9,7 @@
                     <b-nav-item to="/">
                         探索
                     </b-nav-item>
-                    <b-nav-item href="#">商城</b-nav-item>
+                    <b-nav-item to="/browse">商城</b-nav-item>
                 </b-navbar-nav>
                 <b-nav-form class="mx-auto">
                     <b-form-input size="sm" type="search" placeholder="搜索"></b-form-input>

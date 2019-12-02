@@ -21,7 +21,8 @@
             name: String,
             price: Number,
             imgSrc: String,
-            subtitle: String
+            subtitle: String,
+            logoSrc:String
         }
     }
 </script>

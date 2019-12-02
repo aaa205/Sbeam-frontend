@@ -51,7 +51,6 @@
 <script>
     import GameCard from "@/components/GameCard";
     import BigGameCard from "@/components/BigGameCard";
-
     export default {
         name: "HomeContent",
         components: {GameCard, BigGameCard},
@@ -95,9 +94,5 @@
 </script>
 
 <style scoped>
-    .row-title {
-        color: white;
-        font-size: 1.17em;
-        margin-top: 3%;
-    }
+
 </style>
