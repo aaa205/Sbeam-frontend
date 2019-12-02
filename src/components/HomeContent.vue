@@ -72,11 +72,6 @@
         <b-col>
           <b-row>
             <b-col>
-              <h6 class="row-title text-left">Games</h6>
-            </b-col>
-          </b-row>
-          <b-row>
-            <b-col>
               <games-jumbotron></games-jumbotron>
             </b-col>
           </b-row>
