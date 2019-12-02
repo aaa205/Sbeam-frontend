@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 div{
     letter-spacing: .01rem;
     line-height: 1.4;
     font-weight: 500;
 }
+=======
+div {
+>>>>>>> 3a61f69478e278c6b6fe25e249b1ad248a40cb32
 
 input[type="text"]{
     border: 1px solid;
@@ -28,18 +32,24 @@ a:hover {
 a:active {
     text-decoration: none;
 }
-h1 h2 h3 h4 h5 h6{
+
+h1 h2 h3 h4 h5 h6 {
     color: white;
 
 }
 
-.card-title {
+.card_title {
+    letter-spacing: .01rem;
+    line-height: 1.4;
+    font-weight: 500;
+}
+.card_price{
     letter-spacing: .01rem;
     line-height: 1.4;
     font-weight: 500;
 }
 
-.card-subtitle {
+.card_subtitle {
     color: hsla(0, 0%, 100%, .7);
 }
 
@@ -85,3 +95,14 @@ h1 h2 h3 h4 h5 h6{
 }
 
 
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
+}
+
+.row_title {
+    color: white;
+    font-size: 1.17em;
+    margin-top: 3%;
+}
