@@ -1,7 +1,10 @@
 <template>
     <div class="col-md-3 col-sm-6 card-content text-left">
         <a href="#">
-            <div>
+            <div style="position: relative;">
+                <div class="logoSrc">
+                    <b-img-lazy v-bind:src="logoSrc" class="cardImg"></b-img-lazy>
+                </div>
                 <b-img-lazy v-bind:src="imgSrc" class="cardImg"></b-img-lazy>
             </div>
             <div class="text-left">
@@ -11,6 +14,7 @@
             </div>
         </a>
     </div>
+
 </template>
 
 <script>
@@ -44,6 +48,11 @@
         max-width: 100%;
         background-position: center;
         clip: rect(80px 80px 690px 833px);
+    }
+    .logoSrc{
+        position: absolute;
+        left: 10%;
+        top: 25%;
     }
 
 </style>
