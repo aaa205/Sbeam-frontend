@@ -22,6 +22,7 @@
                         v-bind:img-src="card.imgSrc"
                         v-bind:price="card.price"
                         v-bind:subtitle="card.subtitle"
+                        v-bind:logo-src="card.logoSrc"
                 ></game-card>
             </b-row>
             <!--每周免费游戏-->
@@ -63,28 +64,32 @@
                         name: 'Shenmue 3',
                         price: 59,
                         imgSrc: require('../assets/img/game-card/Shenmue 3.jpg'),
-                        subtitle: 'subtitle'
+                        subtitle: 'subtitle',
+                        logoSrc: require('../assets/img/game-logo/Shenmue 3.png')
                     },
                     {
                         id: 2,
                         name: 'Fortnite',
                         price: 59,
                         imgSrc: require('../assets/img/game-card/Fortnite.jpg'),
-                        subtitle: 'subtitle'
+                        subtitle: 'subtitle',
+                        logoSrc: require('../assets/img/game-logo/Fortnite.png')
                     },
                     {
                         id: 3,
                         name: 'Shenmue 3',
                         price: 59,
                         imgSrc: 'https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640',
-                        subtitle: 'subtitle'
+                        subtitle: 'subtitle',
+                        logoSrc: require('../assets/img/game-logo/Borderlands 3.png')
                     },
                     {
                         id: 4,
                         name: 'Shenmue 3',
                         price: 59,
                         imgSrc: 'https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640',
-                        subtitle: 'subtitle'
+                        subtitle: 'subtitle',
+                        logoSrc: require('../assets/img/game-logo/Rainbow Six Siege.png')
                     }
                 ]
             }
