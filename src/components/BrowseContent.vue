@@ -5,7 +5,7 @@
                 <b-col md="9">
                     <!--游戏数-->
                     <b-row>
-                        <b-col><h6 class="text-left">{{total}} 款游戏</h6></b-col>
+                        <b-col><h6 class="text-left bro-title">{{total}} 款游戏</h6></b-col>
                     </b-row>
                     <!--游戏展示-->
                     <b-row class="cards_wrapper">
@@ -23,36 +23,52 @@
                 <b-col md="3">
                     <div class="filters_wrapper">
                         <header>
-                            <h6>筛选器</h6>
+                            <h5 class="bro-title">筛选器</h5>
                             <hr class="filters_line"/>
                         </header>
                         <!--TAG-->
-                        <b-button v-b-toggle.collapse-0>
-                            分类
-                        </b-button>
+                        <div v-b-toggle.collapse-0>
+                            <h6 class="bro-title">分类</h6>
+                        </div>
                         <b-collapse id="collapse-0">
                             <b-list-group flush="true" class="filters_list">
-                                <b-list-group-item class="filters_item"><a href="#">动作</a></b-list-group-item>
-                                <b-list-group-item class="filters_item"><a href="#">冒险</a></b-list-group-item>
-                                <b-list-group-item class="filters_item"><a href="#">编辑器</a></b-list-group-item>
-                                <b-list-group-item class="filters_item"><a href="#">解密</a></b-list-group-item>
-                                <b-list-group-item class="filters_item"><a href="#">角色扮演</a></b-list-group-item>
-                                <b-list-group-item class="filters_item"><a href="#">设计</a></b-list-group-item>
-                            </b-list-group>
-                        </b-collapse>
-                        <hr class="filters_line"/>
-                        <!--特色-->
-                        <b-button v-b-toggle.collapse-1>
-                            特色
-                        </b-button>
-                        <b-collapse id="collapse-1">
-                            <b-list-group flush="true" class="filters_list">
-                                <b-list-group-item class="filters_item"><a href="#">单人游戏</a></b-list-group-item>
-                                <b-list-group-item class="filters_item"><a href="#">多人游戏</a></b-list-group-item>
+                                <a href="#">
+                                    <b-list-group-item class="filters_item">动作</b-list-group-item>
+                                </a>
+                                <a href="#">
+                                    <b-list-group-item class="filters_item">冒险</b-list-group-item>
+                                </a>
+                                <a href="#">
+                                    <b-list-group-item class="filters_item">编辑器</b-list-group-item>
+                                </a>
+                                <a href="#">
+                                    <b-list-group-item class="filters_item">解密</b-list-group-item>
+                                </a>
+                                <a href="#">
+                                    <b-list-group-item class="filters_item">角色扮演</b-list-group-item>
+                                </a>
+                                <a href="#">
+                                    <b-list-group-item class="filters_item">设计</b-list-group-item>
+                                </a>
                             </b-list-group>
                         </b-collapse>
                         <hr class="filters_line"/>
 
+                        <!--特色-->
+                        <div v-b-toggle.collapse-1>
+                            <h6 class="bro-title">特色</h6>
+                        </div>
+                        <b-collapse id="collapse-1">
+                            <b-list-group flush="true" class="filters_list">
+                                <a href="#">
+                                    <b-list-group-item class="filters_item">单人游戏</b-list-group-item>
+                                </a>
+                                <a href="#">
+                                    <b-list-group-item class="filters_item">多人游戏</b-list-group-item>
+                                </a>
+                            </b-list-group>
+                        </b-collapse>
+                        <hr class="filters_line"/>
                     </div>
                 </b-col>
             </b-row>
@@ -108,8 +124,8 @@
 </script>
 
 <style scoped>
-    h6 {
-        color: ghostwhite;
+    .bro-title{
+        color: white;
     }
 
     .browse_content {
