@@ -51,8 +51,8 @@
     }
     .logoSrc{
         position: absolute;
-        left: 10%;
-        top: 25%;
+        left: 2%;
+        top: 30%;
     }
 
 </style>
