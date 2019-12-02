@@ -31,6 +31,7 @@
     .card-content {
         color: white;
         font-size: .88rem;
+        margin-bottom: 2%;
     }
 
     h5 {
