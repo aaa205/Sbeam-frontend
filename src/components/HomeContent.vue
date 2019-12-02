@@ -21,7 +21,8 @@
                         v-bind:name="card.name"
                         v-bind:img-src="card.imgSrc"
                         v-bind:price="card.price"
-                        v-bind:subtitle="card.subtitle"
+                        v-bind:publisher="card.publisher"
+                        v-bind:developer="card.developer"
                         v-bind:logo-src="card.logoSrc"
                 ></game-card>
             </b-row>

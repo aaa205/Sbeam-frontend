@@ -50,12 +50,14 @@
         background-position: center;
         clip: rect(80px 80px 690px 833px);
     }
-    .logoSrc{
+
+    .logoSrc {
         position: absolute;
         left: 2%;
         top: 30%;
     }
-    .info_box{
+
+    .info_box {
         margin-top: 3%;
         margin-bottom: 6%;
     }
