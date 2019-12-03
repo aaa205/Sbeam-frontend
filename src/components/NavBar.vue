@@ -17,7 +17,10 @@
                 </b-nav-form>
                 <b-navbar-nav>
                     <b-nav-item>购物车</b-nav-item>
-                    <b-nav-item to="/login">登录</b-nav-item>
+                    <b-nav-item v-if="!this.userName" to="/login">登录</b-nav-item>
+                    <b-nav-item v-else>
+                        <b-img width="25" height="25" center rounded="circle" v-bind:src="avatar"></b-img>
+                    </b-nav-item>
                 </b-navbar-nav>
             </b-collapse>
         </b-navbar>
@@ -26,10 +29,30 @@
 
 <script>
     export default {
-        name: "NavBar"
+        name: "NavBar",
+        data() {
+            return {
+                userName: null,
+                avatar: '',
+                userID:0
+            }
+        },
+        mounted() {
+            this.getLoginState()
+        },
+        methods: {
+            getLoginState() {
+                this.userName = this.$cookies.get('userName')
+                this.userID=this.$cookies.get('userID')
+                let img = this.$cookies.get('avatar')
+                if (img)
+                    this.avatar = require('../assets/' + img)
+            }
+        }
     }
 </script>
 
 <style scoped>
+
 
 </style>
