@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-footer text-left mt-5">
+    <div class="bg-footer text-left mt-5 ">
         <b-container>
             <div class="box">
                 <b-row>
@@ -16,7 +16,7 @@
                                         <b-link href="#">创作者支持计划</b-link>
                                     </li>
                                     <li>
-                                        <b-link href="#">在Epic Games上发布</b-link>
+                                        <b-link href="#">在Sbeam Games上发布</b-link>
                                     </li>
                                     <li>
                                         <b-link href="#">职业</b-link>
@@ -56,7 +56,7 @@
                     <b-col cols="12">
                         <b-row>
                             <b-col class="text-white-50">
-                                <h5>由Epic Games开发</h5>
+                                <h5>由Sbeam Games开发</h5>
                             </b-col>
                         </b-row>
                         <b-row>
@@ -95,7 +95,7 @@
                 <b-row>
                     <b-col cols="12">
                         <div class="text-white-50 text-center">
-                            © 2019, Epic Games, Inc. 版权所有。
+                            © 2019, Sbeam Games, Inc. 版权所有。
                         </div>
                     </b-col>
                 </b-row>
