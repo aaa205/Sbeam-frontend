@@ -16,7 +16,7 @@
                     <input type="button" class=" btn sb-btn" value="ok">
                 </b-nav-form>
                 <b-navbar-nav>
-                    <b-nav-item>购物车</b-nav-item>
+                    <b-nav-item to="/cart">购物车</b-nav-item>
                     <b-nav-item to="/login">登录</b-nav-item>
                 </b-navbar-nav>
             </b-collapse>

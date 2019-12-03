@@ -2,32 +2,6 @@
   <div>
     <b-container>
       <home-carousel></home-carousel>
-      <!-- <b-carousel>
-                <b-carousel-slide
-                        caption="First slide"
-                        img-src="https://picsum.photos/1024/480/?image=10"
-                        content-visible-up="sm"
-                ></b-carousel-slide>
-      </b-carousel>-->
-
-      <!-- 轮播图 -->
-      <!-- <div class="sb-carousel">
-        <b-carousel
-          id="carousel-1"
-          v-model="slide"
-          :interval="10000"
-          controls
-          background="#000"
-          img-width="1024"
-          img-height="480"
-          style="text-shadow: 1px 1px 2px #333;"
-        >
-          <b-carousel-slide :img-src="imgSrc[0]" class="sb-carousel-size"></b-carousel-slide>
-          <b-carousel-slide :img-src="imgSrc[1]" class="sb-carousel-size"></b-carousel-slide>
-          <b-carousel-slide :img-src="imgSrc[2]" class="sb-carousel-size"></b-carousel-slide>
-        </b-carousel>
-      </div> -->
-
       <!--新发布游戏-->
       <b-row>
         <b-col>
@@ -70,11 +44,7 @@
       </b-row>
       <b-row>
         <b-col>
-          <b-row>
-            <b-col>
-              <games-jumbotron></games-jumbotron>
-            </b-col>
-          </b-row>
+          <games-jumbotron></games-jumbotron>
         </b-col>
       </b-row>
       <!-- 热门分类 -->
@@ -112,7 +82,13 @@ import GamesJumbotron from "@/components/GamesJumbotron";
 import HomeCarousel from "@/components/HomeCarousel";
 export default {
   name: "HomeContent",
-  components: { GameCard, BigGameCard, ClassificationBar, GamesJumbotron, HomeCarousel },
+  components: {
+    GameCard,
+    BigGameCard,
+    ClassificationBar,
+    GamesJumbotron,
+    HomeCarousel
+  },
   data() {
     return {
       cards: [

@@ -10,6 +10,8 @@ import VueAxios from "vue-axios";
 import LoginContent from "@/components/LoginContent";
 import JoinContent from "@/components/JoinContent";
 import BrowseContent from "@/components/BrowseContent";
+import Cart from "@/components/Cart";
+import CartBlank from "@/components/CartBlank";
 import './css/scaffolding.css'
 
 Vue.use(BootstrapVue)
@@ -19,7 +21,9 @@ const routes = [
     {path: '/', component: HomeContent},
     {path: '/login', component: LoginContent},
     {path: '/join', component: JoinContent},
-    {path: '/browse', component: BrowseContent}
+    {path: '/browse', component: BrowseContent},
+    {path: '/cart', component: Cart},
+    {path: '/cart_blank', component: CartBlank}
 ]
 const router = new VueRouter({
     routes
