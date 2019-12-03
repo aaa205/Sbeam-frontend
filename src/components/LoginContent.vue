@@ -9,11 +9,11 @@
                         <b-col class="col-12 col-md-6 ">
                             <h5>登录</h5>
                             <p class=" description_text">到现有的 Sbeam 帐户</p>
-                            <b-form>
+                            <b-form @submit="onSubmit">
                                 <b-form-group label="账户邮箱" label-class="text-white" label-for="input-account">
                                     <b-form-input
                                             id="input-account"
-                                            v-model="form.account"
+                                            v-model="form.email"
                                             type="email"
                                             required
                                             placeholder="输入邮箱"></b-form-input>
@@ -59,6 +59,8 @@
 
 <script>
     import WhyBox from "@/components/WhyBox";
+    import {login} from "@/apis/api";
+
     export default {
         name: "LoginContent",
         components: {WhyBox},
@@ -66,9 +68,21 @@
             return {
                 //登录数据
                 form: {
-                    account: '',
+                    email: '',
                     password: ''
                 }
+            }
+        },
+        methods: {
+            onSubmit() {
+                login(this.form).then(resp => {
+                    if (resp.status != 200) {
+                        window.console.log(resp.data)
+                        return
+                    }
+                    //登录成功,搞不到跳转首页
+                    this.$router.go(0)//刷新整个页面
+                })
             }
         }
     }
@@ -84,7 +98,6 @@
         background: #2a2a2a;
         padding: 4% 4% 8% 4%;
     }
-
 
 
     @media (min-width: 768px) {
@@ -104,7 +117,6 @@
         margin-inline-end: 0px;
         color: #bcbcbc;
     }
-
 
 
     .login_content {
