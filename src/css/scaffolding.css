@@ -1,8 +1,4 @@
-div{
-    letter-spacing: .01rem;
-    line-height: 1.4;
-    font-weight: 500;
-}
+div {}
 
 input[type="text"]{
     border: 1px solid;
@@ -47,6 +43,10 @@ h1 h2 h3 h4 h5 h6 {
 
 .card_subtitle {
     color: hsla(0, 0%, 100%, .7);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: block;
 }
 
 .sb-btn{
@@ -59,10 +59,15 @@ h1 h2 h3 h4 h5 h6 {
 .sb-btn:hover {
     background-color: rgba(188,188,188);
 }
+.row_title {
+    color: white;
+    font-size: 1.17em;
+    margin-top: 3%;
+}
 
 
 .sb-game-card {
-    padding: 0;
+
     max-width: 100%;
 }
 
