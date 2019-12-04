@@ -14,7 +14,8 @@ import Cart from "@/components/Cart";
 import CartBlank from "@/components/CartBlank";
 import './css/scaffolding.css'
 import VueCookies from 'vue-cookies'
-axios.defaults.withCredentials=true//允许传递cookie
+
+axios.defaults.withCredentials = true//允许传递cookie
 Vue.use(BootstrapVue)
 Vue.use(VueAxios, axios)
 Vue.use(VueCookies)
@@ -23,7 +24,7 @@ const routes = [
     {path: '/', component: HomeContent},
     {path: '/login', component: LoginContent},
     {path: '/join', component: JoinContent},
-    {path: '/browse', component: BrowseContent},
+    {path: '/browse', component: BrowseContent,props:(route)=>({kw:route.query.kw})},
     {path: '/cart', component: Cart},
     {path: '/cart_blank', component: CartBlank}
 ]
