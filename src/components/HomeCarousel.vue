@@ -9,9 +9,9 @@
                 img-height="480"
                 style="text-shadow: 1px 1px 2px #333;"
         >
-            <b-carousel-slide :img-src="imgSrc[0]" class="sb-carousel-size"></b-carousel-slide>
-            <b-carousel-slide :img-src="imgSrc[1]" class="sb-carousel-size"></b-carousel-slide>
-            <b-carousel-slide :img-src="imgSrc[2]" class="sb-carousel-size"></b-carousel-slide>
+            <b-carousel-slide :img-src="imgSrc[0]" class="sb-carousel-size" caption="Red Dead Redemption 2"></b-carousel-slide>
+            <b-carousel-slide :img-src="imgSrc[1]" class="sb-carousel-size" caption="Fortnite"></b-carousel-slide>
+            <b-carousel-slide :img-src="imgSrc[2]" class="sb-carousel-size" caption="The Outer Worlds"></b-carousel-slide>
         </b-carousel>
     </div>
 </template>

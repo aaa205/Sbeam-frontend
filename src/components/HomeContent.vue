@@ -36,15 +36,15 @@
           </big-game-card>
         </b-col>
       </b-row>
-      <!-- 预购（巨幕） -->
+      <!-- 热门游戏（巨幕） -->
       <b-row>
         <b-col>
-          <h6 class="row-title text-left">预购</h6>
+          <h6 class="row-title text-left">热门游戏</h6>
         </b-col>
       </b-row>
       <b-row>
         <b-col>
-          <games-jumbotron></games-jumbotron>
+          <games-jumbotron :jumbotronData="jumbotronData[0]"></games-jumbotron>
         </b-col>
       </b-row>
       <!-- 热门分类 -->
@@ -59,15 +59,15 @@
         </b-col>
       </b-row>
 
-      <!-- Games -->
+      <!-- 浏览 -->
       <b-row>
         <b-col>
-          <h6 class="row-title text-left">Games</h6>
+          <h6 class="row-title text-left">浏览</h6>
         </b-col>
       </b-row>
       <b-row>
         <b-col>
-          <games-jumbotron></games-jumbotron>
+          <games-jumbotron :jumbotronData=jumbotronData[1]></games-jumbotron>
         </b-col>
       </b-row>
     </b-container>
@@ -123,6 +123,22 @@ export default {
           imgSrc:
             "https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640",
           subtitle: "subtitle"
+        }
+      ],
+      jumbotronData: [
+        {
+          id: 1,
+          header: "《Rainbow Six Siege》",
+          lead: "成群结队，突破一触即发的 5v5 PvP 行动",
+          bgImgSrc: require('../assets/img/game-jumbotron/RainbowSixSiege.png') ,
+          btnText: "立即购买"
+        },
+        {
+          id: 2,
+          header: "浏览",
+          lead: "探索我们的目录，寻找下一款心仪游戏！",
+          bgImgSrc: require('../assets/img/game-jumbotron/Browse.png'),
+          btnText: "开始浏览"
         }
       ]
     };

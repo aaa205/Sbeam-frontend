@@ -1,8 +1,8 @@
 <template>
   <div class="sb-jumbotron sb-bgc-grey">
-    <b-jumbotron class="sb-jb-bg1" header="《Fortnite》" lead="探索诡异、狂野、古怪而又离奇的《Fortnite》世界。">
+    <b-jumbotron :style="{background: 'url( '+ jumbotronData.bgImgSrc +')'+'no-repeat right', 'background-size': 'auto 100%'}" class="sb-jb-bg" :header="jumbotronData.header" :lead="jumbotronData.lead" >
       <p></p>
-      <b-button href="#">立即预购</b-button>
+      <b-button href="#">{{jumbotronData.btnText}}</b-button>
     </b-jumbotron>
   </div>
 </template>
@@ -11,18 +11,19 @@
 export default {
   name: "GamesJumbotron",
   props: {
-    bgSrc: String
+    jumbotronData: Object
   }
 };
 </script>
-
 <style>
 .sb-jumbotron {
   text-align: left;
   color: white;
 }
-.sb-jb-bg1 {
-  background: url("https://cdn2.unrealengine.com/Diesel%2Fstore%2FEG_Store_BrowseAll_Breaker_580x433-580x433-ac4c6fdf4254128f5d8a4ce9ad7e000191814e5a.png") no-repeat right;
+.sb-jb-bg {
+  /* background: url("../assets/img/game-jumbotron/Browse.png") no-repeat right; */
+  height: 450px;
+  line-height: 7em;
   background-size: auto 100%;
 }
 </style>
