@@ -124,24 +124,13 @@ export default {
             "https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640",
           subtitle: "subtitle"
         }
-      ],
-      imgSrc: [
-        require("../assets/img/game-logo/Metro Exodus.png"),
-        require("../assets/img/game-logo/Borderlands 3.png"),
-        require("../assets/img/game-logo/Fortnite.png")
-      ],
-      bgSrc: [require("../assets/img/game-logo/Fortnite.png")],
-      classificationSrc: ["#"],
-      classificationText: ["动作", "角色扮演", "射击", "战略", "解密", "体育"]
     };
-  }
-};
 </script>
 
 <style scoped>
-.row-title {
-  color: white;
-  font-size: 1.17em;
-  margin-top: 3%;
-}
+    .row-title {
+        color: white;
+        font-size: 1.17em;
+        margin-top: 3%;
+    }
 </style>

@@ -13,9 +13,11 @@ import BrowseContent from "@/components/BrowseContent";
 import Cart from "@/components/Cart";
 import CartBlank from "@/components/CartBlank";
 import './css/scaffolding.css'
-
+import VueCookies from 'vue-cookies'
+axios.defaults.withCredentials=true//允许传递cookie
 Vue.use(BootstrapVue)
 Vue.use(VueAxios, axios)
+Vue.use(VueCookies)
 Vue.config.productionTip = false
 const routes = [
     {path: '/', component: HomeContent},
@@ -33,5 +35,8 @@ Vue.use(VueRouter)
 
 new Vue({
     render: h => h(App),
-    router
+    router,
+    data() {
+        return {}
+    }
 }).$mount('#app')

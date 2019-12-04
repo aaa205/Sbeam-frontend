@@ -78,7 +78,6 @@
         methods: {
             onSubmit() {
                 register(this.form).then(resp => {
-                    //todo
                     if (resp.status != 200)
                         window.console.log(resp.data)
                     if (resp.data.ret == 0)
