@@ -12,7 +12,7 @@
                     <b-nav-item to="/browse">商城</b-nav-item>
                 </b-navbar-nav>
                 <b-nav-form class="mx-auto">
-                    <input type="text" class="sb-input-text" placeholder="搜索">
+                    <b-input type="search" placeholder="搜索"></b-input>
                     <input type="button" class=" btn sb-btn" value="ok">
                 </b-nav-form>
                 <b-navbar-nav>

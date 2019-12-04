@@ -13,3 +13,7 @@ export const login = params => {
 export const getGameCards = () => {
     return axios.get(`${host}/games`)
 }
+//获取首页资源
+export const getIndex=()=>{
+    return axios.get(`${host}/index`)
+}

@@ -12,6 +12,7 @@
                                     <b-form-input
                                             id="input-1"
                                             v-model="form.name"
+                                            type="password"
                                             required
                                             placeholder="输入账户名">
                                     </b-form-input>
@@ -20,6 +21,7 @@
                                     <b-form-input
                                             id="input-2"
                                             v-model="form.email"
+                                            type="email"
                                             required
                                             placeholder="输入邮箱地址">
                                     </b-form-input>
@@ -27,6 +29,7 @@
                                 <b-form-group label="密码" label-class="text-white" label-for="input-3">
                                     <b-form-input
                                             id="input-3"
+                                            type="password"
                                             v-model="form.password"
                                             required
                                             placeholder="输入密码">
@@ -36,6 +39,7 @@
                                     <b-form-input
                                             id="input-4"
                                             v-model="form.repeat_password"
+                                            type="password"
                                             required
                                             placeholder="输入密码">
                                     </b-form-input>
@@ -43,6 +47,12 @@
                                 <b-row>
                                     <b-col class="col-12 col-md-6">
                                         <b-button type="submit" class="btn-block">注 册</b-button>
+                                        <!--注册成功-->
+                                        <b-modal ref="join-modal" hide-footer title="Sbeam">
+                                            <div class="d-block text-left"><h4 class="text-black-50">
+                                                注册成功，点击确认跳转至首页。</h4></div>
+                                            <b-button class="mt-3" variant="outline-dark" block to="/">确 认</b-button>
+                                        </b-modal>
                                     </b-col>
                                 </b-row>
                             </b-form>
@@ -81,7 +91,7 @@
                     if (resp.status != 200)
                         window.console.log(resp.data)
                     if (resp.data.ret == 0)
-                        window.console.log('register successfully')
+                        this.$refs['join-modal'].show()
                     else
                         window.console.log(resp.data.msg)
                 })
