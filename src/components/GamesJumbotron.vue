@@ -21,7 +21,7 @@ export default {
   color: white;
 }
 .sb-jb-bg {
-  /* background: url("../assets/img/game-jumbotron/Browse.png") no-repeat right; */
+  /*background: url("../assets/img/game-jumbotron/Browse.png") no-repeat right;*/
   height: 450px;
   line-height: 7em;
   background-size: auto 100%;

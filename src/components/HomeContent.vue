@@ -45,7 +45,7 @@
                 <b-col>
                     <b-row>
                         <b-col>
-                            <games-jumbotron></games-jumbotron>
+                            <games-jumbotron v-bind:jumbotron-data="jumbotronData[0]"></games-jumbotron>
                         </b-col>
                     </b-row>
                 </b-col>
@@ -102,7 +102,7 @@
                 jumbotronData: [
                     {
                         id: 1,
-                        header: "《Rainbow Six Siege》",
+                        header: "Rainbow Six Siege",
                         lead: "成群结队，突破一触即发的 5v5 PvP 行动",
                         bgImgSrc: require('../assets/img/game-jumbotron/RainbowSixSiege.png') ,
                         btnText: "立即购买"
