@@ -11,11 +11,14 @@
             <b-row>
                 <game-card
                         v-for="card in cards"
+                        v-bind:id="card.id"
                         v-bind:key="card.id"
                         v-bind:name="card.name"
-                        v-bind:img-src="card.imgSrc"
+                        v-bind:img-src="card.card_img"
+                        v-bind:logo-src="card.logo_img"
                         v-bind:price="card.price"
-                        v-bind:subtitle="card.subtitle"
+                        v-bind:developer="card.developer"
+                        v-bind:publisher="card.publisher"
                 ></game-card>
             </b-row>
             <!--每周免费游戏-->
@@ -80,46 +83,14 @@
     import ClassificationBar from "@/components/ClassificationBar";
     import GamesJumbotron from "@/components/GamesJumbotron";
     import HomeCarousel from "@/components/HomeCarousel";
+    import {getIndex} from "@/apis/api";
 
     export default {
         name: "HomeContent",
         components: {GameCard, BigGameCard, ClassificationBar, GamesJumbotron, HomeCarousel},
         data() {
             return {
-                cards: [
-                    {
-                        id: 1,
-                        name: "Shenmue 3",
-                        price: 59,
-                        imgSrc:
-                            "https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640",
-                        subtitle: "subtitle"
-                    },
-                    {
-                        id: 2,
-                        name: "Shenmue 3",
-                        price: 59,
-                        imgSrc:
-                            "https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640",
-                        subtitle: "subtitle"
-                    },
-                    {
-                        id: 3,
-                        name: "Shenmue 3",
-                        price: 59,
-                        imgSrc:
-                            "https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640",
-                        subtitle: "subtitle"
-                    },
-                    {
-                        id: 4,
-                        name: "Shenmue 3",
-                        price: 59,
-                        imgSrc:
-                            "https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640",
-                        subtitle: "subtitle"
-                    }
-                ],
+                cards: [],
                 imgSrc: [
                     require("../assets/img/game-logo/Metro Exodus.png"),
                     require("../assets/img/game-logo/Borderlands 3.png"),
@@ -129,6 +100,25 @@
                 classificationSrc: ["#"],
                 classificationText: ["动作", "角色扮演", "射击", "战略", "解密", "体育"]
             };
+        },
+        mounted(){
+          this.getIndexData()
+        },
+        methods: {
+            getIndexData() {
+                getIndex().then(resp => {
+                    if (resp.status != 200)
+                        window.console.log(resp.data)
+                    //转换图片路径
+                    let res = resp.data
+                    for (let i = 0, l = res.length; i < l; i++) {
+                        res[i].card_img = require('../assets/' + res[i].card_img)
+                        res[i].logo_img = require('../assets/' + res[i].logo_img)
+                    }
+                    res[0].logo_img = ''//id:1游戏的logo图是黑底，不放了
+                    this.cards = res
+                })
+            }
         }
     };
 </script>
