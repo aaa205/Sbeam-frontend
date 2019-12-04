@@ -1,5 +1,5 @@
 <template>
-    <div class="col-md-3 col-sm-6 card-content text-left">
+    <div class="col-md-3 col-6 card-content text-left">
         <a href="#">
             <div style="position: relative;">
                 <div class="logoSrc">

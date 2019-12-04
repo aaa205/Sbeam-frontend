@@ -2,32 +2,6 @@
   <div>
     <b-container>
       <home-carousel></home-carousel>
-      <!-- <b-carousel>
-                <b-carousel-slide
-                        caption="First slide"
-                        img-src="https://picsum.photos/1024/480/?image=10"
-                        content-visible-up="sm"
-                ></b-carousel-slide>
-      </b-carousel>-->
-
-      <!-- 轮播图 -->
-      <!-- <div class="sb-carousel">
-        <b-carousel
-          id="carousel-1"
-          v-model="slide"
-          :interval="10000"
-          controls
-          background="#000"
-          img-width="1024"
-          img-height="480"
-          style="text-shadow: 1px 1px 2px #333;"
-        >
-          <b-carousel-slide :img-src="imgSrc[0]" class="sb-carousel-size"></b-carousel-slide>
-          <b-carousel-slide :img-src="imgSrc[1]" class="sb-carousel-size"></b-carousel-slide>
-          <b-carousel-slide :img-src="imgSrc[2]" class="sb-carousel-size"></b-carousel-slide>
-        </b-carousel>
-      </div> -->
-
       <!--新发布游戏-->
       <b-row>
         <b-col>
@@ -62,19 +36,15 @@
           </big-game-card>
         </b-col>
       </b-row>
-      <!-- 预购（巨幕） -->
+      <!-- 热门游戏（巨幕） -->
       <b-row>
         <b-col>
-          <h6 class="row-title text-left">预购</h6>
+          <h6 class="row-title text-left">热门游戏</h6>
         </b-col>
       </b-row>
       <b-row>
         <b-col>
-          <b-row>
-            <b-col>
-              <games-jumbotron></games-jumbotron>
-            </b-col>
-          </b-row>
+          <games-jumbotron :jumbotronData="jumbotronData[0]"></games-jumbotron>
         </b-col>
       </b-row>
       <!-- 热门分类 -->
@@ -89,15 +59,15 @@
         </b-col>
       </b-row>
 
-      <!-- Games -->
+      <!-- 浏览 -->
       <b-row>
         <b-col>
-          <h6 class="row-title text-left">Games</h6>
+          <h6 class="row-title text-left">浏览</h6>
         </b-col>
       </b-row>
       <b-row>
         <b-col>
-          <games-jumbotron></games-jumbotron>
+          <games-jumbotron :jumbotronData=jumbotronData[1]></games-jumbotron>
         </b-col>
       </b-row>
     </b-container>
@@ -112,7 +82,13 @@ import GamesJumbotron from "@/components/GamesJumbotron";
 import HomeCarousel from "@/components/HomeCarousel";
 export default {
   name: "HomeContent",
-  components: { GameCard, BigGameCard, ClassificationBar, GamesJumbotron, HomeCarousel },
+  components: {
+    GameCard,
+    BigGameCard,
+    ClassificationBar,
+    GamesJumbotron,
+    HomeCarousel
+  },
   data() {
     return {
       cards: [
@@ -149,14 +125,22 @@ export default {
           subtitle: "subtitle"
         }
       ],
-      imgSrc: [
-        require("../assets/img/game-logo/Metro Exodus.png"),
-        require("../assets/img/game-logo/Borderlands 3.png"),
-        require("../assets/img/game-logo/Fortnite.png")
-      ],
-      bgSrc: [require("../assets/img/game-logo/Fortnite.png")],
-      classificationSrc: ["#"],
-      classificationText: ["动作", "角色扮演", "射击", "战略", "解密", "体育"]
+      jumbotronData: [
+        {
+          id: 1,
+          header: "《Rainbow Six Siege》",
+          lead: "成群结队，突破一触即发的 5v5 PvP 行动",
+          bgImgSrc: require('../assets/img/game-jumbotron/RainbowSixSiege.png') ,
+          btnText: "立即购买"
+        },
+        {
+          id: 2,
+          header: "浏览",
+          lead: "探索我们的目录，寻找下一款心仪游戏！",
+          bgImgSrc: require('../assets/img/game-jumbotron/Browse.png'),
+          btnText: "开始浏览"
+        }
+      ]
     };
   }
 };
