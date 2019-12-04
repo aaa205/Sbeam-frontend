@@ -12,8 +12,7 @@
                     <b-nav-item to="/browse">商城</b-nav-item>
                 </b-navbar-nav>
                 <b-nav-form class="mx-auto">
-                    <b-input type="search" placeholder="搜索"></b-input>
-                    <input type="button" class=" btn sb-btn" value="ok">
+                    <b-input placeholder="搜索" v-model="kw" @keyup.enter="toBrowse"></b-input>
                 </b-nav-form>
                 <b-navbar-nav>
                     <b-nav-item to="/cart">购物车</b-nav-item>
@@ -34,7 +33,8 @@
             return {
                 userName: null,
                 avatar: '',
-                userID:0
+                userID: 0,
+                kw: ''
             }
         },
         mounted() {
@@ -43,10 +43,14 @@
         methods: {
             getLoginState() {
                 this.userName = this.$cookies.get('userName')
-                this.userID=this.$cookies.get('userID')
+                this.userID = this.$cookies.get('userID')
                 let img = this.$cookies.get('avatar')
                 if (img)
                     this.avatar = require('../assets/' + img)
+            },
+            toBrowse() {
+                this.kw.trim()
+                this.$router.push({path: '/browse', query: {kw: this.kw}})
             }
         }
     }

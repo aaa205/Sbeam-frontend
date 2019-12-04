@@ -13,12 +13,12 @@
 </template>
 
 <script>
-export default {
-  name: "GamesJumbotron",
-  props: {
-    jumbotronData: Object
-  }
-};
+    export default {
+        name: "GamesJumbotron",
+        props: {
+            jumbotronData: Object
+        }
+    };
 </script>
 <style>
 .sb-jumbotron {

@@ -10,10 +10,10 @@ export const login = params => {
     return axios.post(`${host}/login`, params)
 }
 //获取GameCard
-export const getGameCards = () => {
-    return axios.get(`${host}/games`,{withCredentials:false})
+export const getGameCards = params => {
+    return axios.get(`${host}/games`, {params: params}, {withCredentials: false})
 }
 //获取首页资源
-export const getIndex=()=>{
-    return axios.get(`${host}/index`,{withCredentials:false})//不传cookie
+export const getIndex = () => {
+    return axios.get(`${host}/index`, {withCredentials: false})//不传cookie
 }
