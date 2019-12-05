@@ -11,6 +11,7 @@ import LoginContent from "@/components/LoginContent";
 import JoinContent from "@/components/JoinContent";
 import BrowseContent from "@/components/BrowseContent";
 import './css/scaffolding.css'
+import DetailContent from "@/components/DetailContent";
 
 Vue.use(BootstrapVue)
 Vue.use(VueAxios, axios)
@@ -19,7 +20,8 @@ const routes = [
     {path: '/', component: HomeContent},
     {path: '/login', component: LoginContent},
     {path: '/join', component: JoinContent},
-    {path: '/browse', component: BrowseContent}
+    {path: '/browse', component: BrowseContent},
+    {path: '/detail', component: DetailContent}
 ]
 const router = new VueRouter({
     routes
