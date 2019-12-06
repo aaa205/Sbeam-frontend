@@ -3,11 +3,11 @@
     <!-- 复选框 -->
     <b-col class="col-1 sb-cart-col">
       <b-form-checkbox
-      class="sb-cart-checkbox"
-          id="selectAll"
-          value="selected"
-          unchecked-value="not-selected"
-        >{{item.id}}</b-form-checkbox>
+        class="sb-cart-checkbox"
+        id="selectAll"
+        value="selected"
+        unchecked-value="not-selected"
+      >{{item.id}}</b-form-checkbox>
     </b-col>
     <!-- 游戏图 -->
     <b-col class="col-3 sb-cart-img">
@@ -31,7 +31,6 @@
       <p class="sb-cart-price">{{item.price}}</p>
     </b-col>
     <!-- 操作 -->
-    
   </b-row>
 </template>
 
@@ -91,9 +90,7 @@ export default {
 
 @media screen and (max-width: 992px) {
   .sb-cart-checkbox {
-    text-align: center;
     top: 15px;
-    left: 4px;
   }
   .sb-cart-text {
     text-align: center;
