@@ -3,9 +3,7 @@
         <div>
             <b-row class="my-5 text-left" >
                 <b-col md="4" >
-                    <span class="text-white-50">
-                        返回{{back}}
-                    </span>
+                    <router-link class="text-white-50" to="/">返回首页</router-link>
                     <span class="mx-2 text-white">
                         |
                     </span>
@@ -124,9 +122,9 @@
                     </div>
                     <div class="my-5">
                         <div class="text-left text-white">
-                            <h6>《{{product.name}}》</h6>
+                            <strong>《{{product.name}}》</strong>
                         </div>
-                        <div class="text-left text-info">
+                        <div class="text-left text-white">
                             <span>
                                 {{product.description}}<br><br>
                                 {{product.description}}<br><br>
@@ -181,13 +179,13 @@
                     <div class="text-left">
                         <b-row class="my-4">
                             <b-col md="6">
-                                <div class="text-white-50 text-center">
-                                    <span>最低配置</span>
+                                <div class="text-white-50">
+                                    <span class="text-left">最低配置</span>
                                 </div>
                             </b-col>
                             <b-col md="6">
-                                <div class="text-white-50 text-center">
-                                    <span>推荐</span>
+                                <div class="text-white-50 ">
+                                    <span class="text-left">推荐</span>
                                 </div>
                             </b-col>
                         </b-row>

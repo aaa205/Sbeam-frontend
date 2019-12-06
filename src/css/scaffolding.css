@@ -1,5 +1,10 @@
-div {
+div {}
 
+input[type="text"]{
+    border: 1px solid;
+    height: 32px;
+    border-radius: 5px;
+    padding-left: 8px;
 }
 
 a:link {
@@ -44,8 +49,50 @@ h1 h2 h3 h4 h5 h6 {
     display: block;
 }
 
+.sb-btn{
+    height: 32px;
+    border: none;
+    background-color: rgba(150, 150, 150);
+    margin-left: 3px;
+    line-height: 1.1em;
+}
+.sb-btn:hover {
+    background-color: rgba(188,188,188);
+}
 .row_title {
     color: white;
     font-size: 1.17em;
     margin-top: 3%;
 }
+
+
+.sb-game-card {
+
+    max-width: 100%;
+}
+
+
+
+.sb-bgc-pink{
+    background-color: pink;
+}
+.sb-bgc-orange{
+    background-color: orange;
+}
+.sb-bgc-lightblue{
+    background-color: lightblue;
+}
+.sb-bgc-purple{
+    background-color: purple;
+}
+.sb-bgc-lightgreen{
+    background-color: rgb(159, 241, 138);
+}
+.sb-bgc-red{
+    background-color: rgb(248, 53, 79);
+}
+.sb-bgc-grey {
+    background-color: #2A2A2A;
+}
+
+

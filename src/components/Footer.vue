@@ -130,5 +130,6 @@
 
     .box {
         padding-top: 5%;
+        padding-bottom: 3%;
     }
 </style>
