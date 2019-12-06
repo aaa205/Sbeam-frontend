@@ -17,3 +17,7 @@ export const getGameCards = params => {
 export const getIndex = () => {
     return axios.get(`${host}/index`)//不传cookie
 }
+//获取游戏详情
+export const getProductDetailById=id=>{
+    return axios.get(`${host}/games/${id}`)
+}
