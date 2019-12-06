@@ -7,7 +7,9 @@
         </b-col>
       </b-row>
       <cart-nav-bar></cart-nav-bar>
-      <cart-item :item="items[0]"></cart-item>
+      <div v-for="item in items" v-bind:key="item.id">
+        <cart-item :item="item" :items="items" v-model="items"></cart-item>
+      </div>
       <b-button href="#" to="/cart_blank">去隔壁</b-button>
     </div>
   </b-container>
@@ -27,39 +29,39 @@ export default {
           Gname: "Red Dead Redemption 2",
           Introduction:
             "Rockstar Games出品的史诗般的开放世界游戏《荒野大镖客：救赎2》不仅好评如潮，也是主机世代评分最高的游戏，PC版更是添加了全新故事模式内容，并进行了视觉效果升级等各项改进。",
-          addDate: new Date(),
           gameSrc: "#",
-          price: '￥'+169
-        },
-        {
-          id: 1,
-          imgSrc: require("../assets/img/game-logo/Red Dead Redemption 2.png"),
-          Gname: "Red Dead Redemption 2",
-          Introduction:
-            "Rockstar Games出品的史诗般的开放世界游戏《荒野大镖客：救赎2》不仅好评如潮，也是主机世代评分最高的游戏，PC版更是添加了全新故事模式内容，并进行了视觉效果升级等各项改进。",
-          addDate: new Date(),
-          gameSrc: "#",
-          price: '￥'+169
+          price: 169,
+          quantity: 1
         },
         {
           id: 2,
-          imgSrc: require("../assets/img/game-logo/Red Dead Redemption 2.png"),
+          imgSrc: require("../assets/img/game-logo/Red-Dead-Redemption-2.png"),
           Gname: "Red Dead Redemption 2",
           Introduction:
             "Rockstar Games出品的史诗般的开放世界游戏《荒野大镖客：救赎2》不仅好评如潮，也是主机世代评分最高的游戏，PC版更是添加了全新故事模式内容，并进行了视觉效果升级等各项改进。",
-          addDate: new Date(),
           gameSrc: "#",
-          price: '￥'+169
+          price: 169,
+          quantity: 1
         },
         {
           id: 3,
-          imgSrc: require("../assets/img/game-logo/Red Dead Redemption 2.png"),
+          imgSrc: require("../assets/img/game-logo/Red-Dead-Redemption-2.png"),
           Gname: "Red Dead Redemption 2",
           Introduction:
             "Rockstar Games出品的史诗般的开放世界游戏《荒野大镖客：救赎2》不仅好评如潮，也是主机世代评分最高的游戏，PC版更是添加了全新故事模式内容，并进行了视觉效果升级等各项改进。",
-          addDate: new Date(),
           gameSrc: "#",
-          price: '￥'+169
+          price: 169,
+          quantity: 1
+        },
+        {
+          id: 4,
+          imgSrc: require("../assets/img/game-logo/Red-Dead-Redemption-2.png"),
+          Gname: "Red Dead Redemption 2",
+          Introduction:
+            "Rockstar Games出品的史诗般的开放世界游戏《荒野大镖客：救赎2》不仅好评如潮，也是主机世代评分最高的游戏，PC版更是添加了全新故事模式内容，并进行了视觉效果升级等各项改进。",
+          gameSrc: "#",
+          price: 169,
+          quantity: 1
         }
       ]
     };

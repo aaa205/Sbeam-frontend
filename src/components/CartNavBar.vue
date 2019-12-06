@@ -4,8 +4,10 @@
       <b-form-checkbox id="selectAll" value="selected" unchecked-value="not-selected" style="text-align: left">全选</b-form-checkbox>
     </b-col>
     <b-col class="col-6 sb-head">商品信息</b-col>
-    <b-col class="col-1 sb-head">金额</b-col>
-    <b-col class="col-3 sb-head">操作</b-col>
+    <b-col class="col-1 sb-head">单价</b-col>
+    <b-col class="col-2 sb-head">数量</b-col>
+    <b-col class="col-1 sb-head">总价</b-col>
+    <b-col class="col-1 sb-head">操作</b-col>
   </b-row>
 </template>
 
