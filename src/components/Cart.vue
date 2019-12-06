@@ -10,7 +10,8 @@
       <div v-for="item in items" v-bind:key="item.id">
         <cart-item :item="item" :items="items" v-model="items"></cart-item>
       </div>
-      <b-button href="#" to="/cart_blank">去隔壁</b-button>
+
+      <cart-bottom-bar></cart-bottom-bar>
     </div>
   </b-container>
 </template>
@@ -18,8 +19,9 @@
 <script>
 import CartItem from "@/components/CartItem";
 import CartNavBar from "@/components/CartNavBar";
+import CartBottomBar from "@/components/CartBottomBar"
 export default {
-  components: { CartItem, CartNavBar },
+  components: { CartItem, CartNavBar, CartBottomBar },
   data() {
     return {
       items: [
@@ -52,16 +54,6 @@ export default {
           gameSrc: "#",
           price: 169,
           quantity: 1
-        },
-        {
-          id: 4,
-          imgSrc: require("../assets/img/game-logo/Red-Dead-Redemption-2.png"),
-          Gname: "Red Dead Redemption 2",
-          Introduction:
-            "Rockstar Games出品的史诗般的开放世界游戏《荒野大镖客：救赎2》不仅好评如潮，也是主机世代评分最高的游戏，PC版更是添加了全新故事模式内容，并进行了视觉效果升级等各项改进。",
-          gameSrc: "#",
-          price: 169,
-          quantity: 1
         }
       ]
     };
@@ -81,24 +73,19 @@ export default {
 .sb-cart-bg {
   background: url("../assets/img/cart/cart.png") no-repeat right;
   background-size: auto 60%;
-  height: 500px;
+  /* height: 500px; */
   line-height: 7em;
   padding-left: 100px;
 }
 .sb-cart-div {
-  height: 500px;
-  margin: 20px auto;
+  /* height: 500px; */
+  margin-top: 20px;
 }
-@media screen and (max-width: 768px) {
+
+@media screen and (max-width: 992px) {
   .sb-cart-container {
-    max-width: 720px;
-    width: 720px;
-  }
-}
-@media screen and (max-width: 768px) {
-  .sb-cart-container {
-    max-width: 720px;
-    width: 720px;
+    max-width: 900px;
+    width: 900px;
   }
 }
 </style>
