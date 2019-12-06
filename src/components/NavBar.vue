@@ -17,7 +17,7 @@
                 <b-navbar-nav>
                     <b-nav-item to="/cart">购物车</b-nav-item>
                     <b-nav-item v-if="!this.isLogin" to="/login">登录</b-nav-item>
-                    <b-nav-item v-else>
+                    <b-nav-item>
                         <b-img width="25" height="25" center rounded="circle" v-bind:src="this.avatar"></b-img>
                     </b-nav-item>
                 </b-navbar-nav>
@@ -36,9 +36,16 @@
                 kw: ''
             }
         },
-        computed:mapState({
-            isLogin: state=>state.user.isLogin,
-            avatar:state=>require('../assets/'+state.user.info.avatar)
+        computed: mapState({
+            isLogin: state => state.user.isLogin,
+            userName: state => state.user.info.userName,
+            userID: state => state.user.info.userID,
+            avatar: state => {
+                if (state.user.info.avatar)
+                    return require('../assets/' + state.user.info.avatar)
+                else
+                    return require('../assets/img/avatar/default_avatar.png')
+            }
         }),
         methods: {
             toBrowse() {

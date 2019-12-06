@@ -49,9 +49,9 @@
                                         <b-button type="submit" class="btn-block">注 册</b-button>
                                         <!--注册成功-->
                                         <b-modal ref="join-modal" hide-footer title="Sbeam">
-                                            <div class="d-block text-left"><h4 class="text-black-50">
-                                                注册成功，点击确认跳转至首页。</h4></div>
-                                            <b-button class="mt-3" variant="outline-dark" block to="/">确 认</b-button>
+                                            <div class="d-block text-left"><h6 class="text-black">
+                                                注册成功，点击确认跳转至首页。</h6></div>
+                                            <b-button block to="/">确 认</b-button>
                                         </b-modal>
                                     </b-col>
                                 </b-row>
@@ -90,9 +90,9 @@
                 register(this.form).then(resp => {
                     if (resp.status != 200)
                         window.console.log(resp.data)
-                    if (resp.data.ret == 0)
+                    if (resp.data.ret == 0) {
                         this.$refs['join-modal'].show()
-                    else
+                    } else
                         window.console.log(resp.data.msg)
                 })
             }
