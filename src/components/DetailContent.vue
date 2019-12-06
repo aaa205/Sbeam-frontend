@@ -14,21 +14,8 @@
             </b-row>
         </div>
         <div>
-            <b-carousel
-                    id="carousel-1"
-                    v-model="slide"
-                    :interval="4000"
-                    controls
-                    indicators
-                    background="#ababab"
-                    img-width="1024"
-                    img-height="480"
-                    style="text-shadow: 1px 1px 2px #333;">
-                <b-carousel-slide v-bind:img-src="product.img_0"></b-carousel-slide>
-                <b-carousel-slide v-bind:img-src="product.img_1"></b-carousel-slide>
-                <b-carousel-slide v-bind:img-src="product.img_2"></b-carousel-slide>
-                <b-carousel-slide v-bind:img-src="product.img_3"></b-carousel-slide>
-            </b-carousel>
+            <home-carousel
+                    v-bind:carousel-data="carouselData"></home-carousel>
         </div>
         <div>
             <b-row class="my-4">
@@ -282,19 +269,20 @@
 
 <script>
     import {getProductDetailById} from "@/apis/api";
+    import HomeCarousel from "@/components/HomeCarousel";
 
     export default {
         name: "DetailContent",
+        components: {HomeCarousel},
         data() {
             return {
                 back: '商城',
                 show: true,
                 msg: '显示更多内容',
                 product: {
-                    spec: [{
-
-                    }]
-                }
+                    spec: [{}]
+                },
+                carouselData: []
             }
         },
         mounted() {
@@ -309,7 +297,12 @@
                         resp.data.img_1 = require('../assets/' + resp.data.img_1)
                         resp.data.img_2 = require('../assets/' + resp.data.img_2)
                         resp.data.img_3 = require('../assets/' + resp.data.img_3)
-                        this.product=resp.data
+                        this.product = resp.data
+                        this.carouselData = [
+                            {id: 1, imgSrc: this.product.img_0,Gname:''},
+                            {id: 2, imgSrc: this.product.img_1,Gname:''},
+                            {id: 3, imgSrc: this.product.img_2,Gname:''},
+                            {id: 4, imgSrc: this.product.img_3,Gname:''}]
                     } else if (resp.status == 404) {
                         //todo 以后加个404页面
                     }
