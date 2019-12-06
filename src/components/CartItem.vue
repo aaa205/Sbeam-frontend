@@ -65,6 +65,7 @@ export default {
         this.item.quantity = 0;
       }
       this.item.quantity++;
+      this.addup()
     },
     sub(){
       if(this.item.quantity<=0){

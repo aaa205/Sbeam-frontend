@@ -5,7 +5,7 @@
       <div class="sb-cart-total">
         <p>
           总价： ￥
-          <span class="sb-cart-number">123</span>
+          <span class="sb-cart-number">{{total}}</span>
         </p>
       </div>
     </b-col>
@@ -19,7 +19,25 @@
 
 <script>
 export default {
-  name: "CartBottomBar"
+  name: "CartBottomBar",
+  props: {
+      items: [],
+  },
+  data(){
+      return {
+          total: 0
+      }
+  },
+  methods: {
+      addup(){
+          this.items.forEach(item=>{
+              this.total = this.total + (item.quantity*item.price)
+          })
+      }
+  },
+  mounted: function(){
+      this.addup()
+  }
 };
 </script>
 
