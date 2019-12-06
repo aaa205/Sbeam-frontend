@@ -13,6 +13,7 @@ import BrowseContent from "@/components/BrowseContent";
 import Cart from "@/components/Cart";
 import CartBlank from "@/components/CartBlank";
 import './css/scaffolding.css'
+import DetailContent from "@/components/DetailContent";
 import VueCookies from 'vue-cookies'
 import store from '@/store'
 
@@ -24,6 +25,8 @@ const routes = [
     {path: '/', component: HomeContent},
     {path: '/login', component: LoginContent},
     {path: '/join', component: JoinContent},
+    {path: '/browse', component: BrowseContent},
+    {path: '/detail', component: DetailContent},
     {path: '/browse', component: BrowseContent, props: (route) => ({kw: route.query.kw})},
     {path: '/cart', component: Cart},
     {path: '/cart_blank', component: CartBlank}
@@ -46,7 +49,6 @@ router.beforeEach((to, from, next) => {
     }else{
         user.isLogin=false
     }
-
     next()
 })
 

@@ -1,5 +1,9 @@
 const state = {
-    info: null,
+    info: {
+        userName: '',
+        userID: -1,
+        avatar:''
+    },
     isLogin: false
 }
 const getters = {}

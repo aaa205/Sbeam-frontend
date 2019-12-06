@@ -17,7 +17,7 @@
                 <b-navbar-nav>
                     <b-nav-item to="/cart">购物车</b-nav-item>
                     <b-nav-item v-if="!this.isLogin" to="/login">登录</b-nav-item>
-                    <b-nav-item>
+                    <b-nav-item v-else>
                         <b-img width="25" height="25" center rounded="circle" v-bind:src="this.avatar"></b-img>
                     </b-nav-item>
                 </b-navbar-nav>
