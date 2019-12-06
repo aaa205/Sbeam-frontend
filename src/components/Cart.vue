@@ -1,24 +1,70 @@
 <template>
-  <b-container>
+  <b-container class="sb-cart-container">
     <div class="sb-jumbotron sb-bgc-grey sb-cart-div">
       <b-row>
         <b-col>
           <h3 class="row-title sb-title-leftpadding">全部商品</h3>
         </b-col>
       </b-row>
-        <b-table>
-            
-        </b-table>
-      <b-jumbotron class="sb-cart-bg" header="您的购物车为空！" lead="请探索更多商品……">
-        <b-button href="#" to="/">立即购物</b-button>
-        <b-button href="#" to="/cart_blank">去隔壁</b-button>
-      </b-jumbotron>
+      <cart-nav-bar></cart-nav-bar>
+      <cart-item :item="items[0]"></cart-item>
+      <b-button href="#" to="/cart_blank">去隔壁</b-button>
     </div>
   </b-container>
 </template>
 
 <script>
-export default {};
+import CartItem from "@/components/CartItem";
+import CartNavBar from "@/components/CartNavBar";
+export default {
+  components: { CartItem, CartNavBar },
+  data() {
+    return {
+      items: [
+        {
+          id: 1,
+          imgSrc: require("../assets/img/game-logo/Red-Dead-Redemption-2.png"),
+          Gname: "Red Dead Redemption 2",
+          Introduction:
+            "Rockstar Games出品的史诗般的开放世界游戏《荒野大镖客：救赎2》不仅好评如潮，也是主机世代评分最高的游戏，PC版更是添加了全新故事模式内容，并进行了视觉效果升级等各项改进。",
+          addDate: new Date(),
+          gameSrc: "#",
+          price: '￥'+169
+        },
+        {
+          id: 1,
+          imgSrc: require("../assets/img/game-logo/Red Dead Redemption 2.png"),
+          Gname: "Red Dead Redemption 2",
+          Introduction:
+            "Rockstar Games出品的史诗般的开放世界游戏《荒野大镖客：救赎2》不仅好评如潮，也是主机世代评分最高的游戏，PC版更是添加了全新故事模式内容，并进行了视觉效果升级等各项改进。",
+          addDate: new Date(),
+          gameSrc: "#",
+          price: '￥'+169
+        },
+        {
+          id: 2,
+          imgSrc: require("../assets/img/game-logo/Red Dead Redemption 2.png"),
+          Gname: "Red Dead Redemption 2",
+          Introduction:
+            "Rockstar Games出品的史诗般的开放世界游戏《荒野大镖客：救赎2》不仅好评如潮，也是主机世代评分最高的游戏，PC版更是添加了全新故事模式内容，并进行了视觉效果升级等各项改进。",
+          addDate: new Date(),
+          gameSrc: "#",
+          price: '￥'+169
+        },
+        {
+          id: 3,
+          imgSrc: require("../assets/img/game-logo/Red Dead Redemption 2.png"),
+          Gname: "Red Dead Redemption 2",
+          Introduction:
+            "Rockstar Games出品的史诗般的开放世界游戏《荒野大镖客：救赎2》不仅好评如潮，也是主机世代评分最高的游戏，PC版更是添加了全新故事模式内容，并进行了视觉效果升级等各项改进。",
+          addDate: new Date(),
+          gameSrc: "#",
+          price: '￥'+169
+        }
+      ]
+    };
+  }
+};
 </script>
 
 <style>
@@ -28,7 +74,7 @@ export default {};
   margin-top: 3%;
 }
 .sb-title-leftpadding {
-    padding-left: 50px;
+  padding-left: 50px;
 }
 .sb-cart-bg {
   background: url("../assets/img/cart/cart.png") no-repeat right;
@@ -40,5 +86,17 @@ export default {};
 .sb-cart-div {
   height: 500px;
   margin: 20px auto;
+}
+@media screen and (max-width: 768px) {
+  .sb-cart-container {
+    max-width: 720px;
+    width: 720px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .sb-cart-container {
+    max-width: 720px;
+    width: 720px;
+  }
 }
 </style>

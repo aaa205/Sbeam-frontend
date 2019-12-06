@@ -91,11 +91,17 @@
             }
         },
         mounted: function () {
-            this.getAllGameCards()
+            this.searchGameCards()
+        },
+        watch:{
+          '$route'(){
+              //路由变化时重新获取数据
+              this.searchGameCards()
+          }
         },
         methods: {
-            getAllGameCards() {
-                getGameCards().then(resp => {
+            searchGameCards() {
+                getGameCards({kw: this.$attrs.kw}).then(resp => {
                     if (resp.status != 200)
                         window.console.log(resp.data)
                     //转换图片路径
@@ -104,8 +110,8 @@
                         res[i].card_img = require('../assets/' + res[i].card_img)
                         res[i].logo_img = require('../assets/' + res[i].logo_img)
                     }
-                    res[0].logo_img=''//id:1游戏的logo图是黑底，不放了
-                    this.cards=res
+                    res[0].logo_img = ''//id:1游戏的logo图是黑底，不放了
+                    this.cards = res
                 })
             }
         },

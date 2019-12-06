@@ -1,63 +1,66 @@
 <template>
-  <div>
-    <b-container>
-      <home-carousel></home-carousel>
-      <!--新发布游戏-->
-      <b-row>
-        <b-col>
-          <h6 class="row-title text-left">新发布游戏</h6>
-        </b-col>
-      </b-row>
-      <b-row>
-        <game-card
-          v-for="card in cards"
-          v-bind:key="card.id"
-          v-bind:name="card.name"
-          v-bind:img-src="card.imgSrc"
-          v-bind:price="card.price"
-          v-bind:subtitle="card.subtitle"
-        ></game-card>
-      </b-row>
-      <!--每周免费游戏-->
-      <b-row>
-        <b-col>
-          <h6 class="row-title text-left">每周免费游戏</h6>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col>
-          <big-game-card class="sb-game-card">
-            <img src alt />
-          </big-game-card>
-        </b-col>
-        <b-col>
-          <big-game-card class="sb-game-card">
-            <img src alt />
-          </big-game-card>
-        </b-col>
-      </b-row>
-      <!-- 热门游戏（巨幕） -->
-      <b-row>
-        <b-col>
-          <h6 class="row-title text-left">热门游戏</h6>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col>
-          <games-jumbotron :jumbotronData="jumbotronData[0]"></games-jumbotron>
-        </b-col>
-      </b-row>
-      <!-- 热门分类 -->
-      <b-row>
-        <b-col>
-          <h6 class="row-title text-left">热门分类</h6>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col>
-          <classification-bar></classification-bar>
-        </b-col>
-      </b-row>
+    <div>
+        <b-container>
+            <home-carousel></home-carousel>
+            <!--新发布游戏-->
+            <b-row>
+                <b-col>
+                    <h6 class="row-title text-left">新发布游戏</h6>
+                </b-col>
+            </b-row>
+            <b-row>
+                <game-card
+                        v-for="card in cards"
+                        v-bind:id="card.id"
+                        v-bind:key="card.id"
+                        v-bind:name="card.name"
+                        v-bind:img-src="card.card_img"
+                        v-bind:logo-src="card.logo_img"
+                        v-bind:price="card.price"
+                        v-bind:developer="card.developer"
+                        v-bind:publisher="card.publisher"
+                ></game-card>
+            </b-row>
+            <!--每周免费游戏-->
+            <b-row>
+                <b-col>
+                    <h6 class="row-title text-left">每周免费游戏</h6>
+                </b-col>
+            </b-row>
+            <b-row>
+                <big-game-card class="sb-game-card">
+                    <img src alt/>
+                </big-game-card>
+                <big-game-card class="sb-game-card">
+                    <img src alt/>
+                </big-game-card>
+            </b-row>
+            <!-- 预购（巨幕） -->
+            <b-row>
+                <b-col>
+                    <h6 class="row-title text-left">预购</h6>
+                </b-col>
+            </b-row>
+            <b-row>
+                <b-col>
+                    <b-row>
+                        <b-col>
+                            <games-jumbotron v-bind:jumbotron-data="jumbotronData[0]"></games-jumbotron>
+                        </b-col>
+                    </b-row>
+                </b-col>
+            </b-row>
+            <!-- 热门分类 -->
+            <b-row>
+                <b-col>
+                    <h6 class="row-title text-left">热门分类</h6>
+                </b-col>
+            </b-row>
+            <b-row>
+                <b-col>
+                    <classification-bar></classification-bar>
+                </b-col>
+            </b-row>
 
       <!-- 浏览 -->
       <b-row>
@@ -75,81 +78,71 @@
 </template>
 
 <script>
-import GameCard from "@/components/GameCard";
-import BigGameCard from "@/components/BigGameCard";
-import ClassificationBar from "@/components/ClassificationBar";
-import GamesJumbotron from "@/components/GamesJumbotron";
-import HomeCarousel from "@/components/HomeCarousel";
-export default {
-  name: "HomeContent",
-  components: {
-    GameCard,
-    BigGameCard,
-    ClassificationBar,
-    GamesJumbotron,
-    HomeCarousel
-  },
-  data() {
-    return {
-      cards: [
-        {
-          id: 1,
-          name: "Shenmue 3",
-          price: 59,
-          imgSrc:
-            "https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640",
-          subtitle: "subtitle"
+    import GameCard from "@/components/GameCard";
+    import BigGameCard from "@/components/BigGameCard";
+    import ClassificationBar from "@/components/ClassificationBar";
+    import GamesJumbotron from "@/components/GamesJumbotron";
+    import HomeCarousel from "@/components/HomeCarousel";
+    import {getIndex} from "@/apis/api";
+
+    export default {
+        name: "HomeContent",
+        components: {GameCard, BigGameCard, ClassificationBar, GamesJumbotron, HomeCarousel},
+        data() {
+            return {
+                cards: [],
+                imgSrc: [
+                    require("../assets/img/game-logo/Metro Exodus.png"),
+                    require("../assets/img/game-logo/Borderlands 3.png"),
+                    require("../assets/img/game-logo/Fortnite.png")
+                ],
+                bgSrc: [require("../assets/img/game-logo/Fortnite.png")],
+                classificationSrc: ["#"],
+                classificationText: ["动作", "角色扮演", "射击", "战略", "解密", "体育"],
+                jumbotronData: [
+                    {
+                        id: 1,
+                        header: "Rainbow Six Siege",
+                        lead: "成群结队，突破一触即发的 5v5 PvP 行动",
+                        bgImgSrc: require('../assets/img/game-jumbotron/RainbowSixSiege.png') ,
+                        btnText: "立即购买"
+                    },
+                    {
+                        id: 2,
+                        header: "浏览",
+                        lead: "探索我们的目录，寻找下一款心仪游戏！",
+                        bgImgSrc: require('../assets/img/game-jumbotron/Browse.png'),
+                        btnText: "开始浏览"
+                    }
+                ]
+            };
         },
-        {
-          id: 2,
-          name: "Shenmue 3",
-          price: 59,
-          imgSrc:
-            "https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640",
-          subtitle: "subtitle"
+        mounted(){
+          this.getIndexData()
         },
-        {
-          id: 3,
-          name: "Shenmue 3",
-          price: 59,
-          imgSrc:
-            "https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640",
-          subtitle: "subtitle"
-        },
-        {
-          id: 4,
-          name: "Shenmue 3",
-          price: 59,
-          imgSrc:
-            "https://cdn1-epicgames-1251447533.file.myqcloud.com/undefined/offer/Shenmue3_portraitpromo-1280x1420-1e524e5b26f65dfb4dcd44d3a7821419.jpg?h=854&resize=1&w=640",
-          subtitle: "subtitle"
+        methods: {
+            getIndexData() {
+                getIndex().then(resp => {
+                    if (resp.status != 200)
+                        window.console.log(resp.data)
+                    //转换图片路径
+                    let res = resp.data
+                    for (let i = 0, l = res.length; i < l; i++) {
+                        res[i].card_img = require('../assets/' + res[i].card_img)
+                        res[i].logo_img = require('../assets/' + res[i].logo_img)
+                    }
+                    res[0].logo_img = ''//id:1游戏的logo图是黑底，不放了
+                    this.cards = res
+                })
+            }
         }
-      ],
-      jumbotronData: [
-        {
-          id: 1,
-          header: "《Rainbow Six Siege》",
-          lead: "成群结队，突破一触即发的 5v5 PvP 行动",
-          bgImgSrc: require('../assets/img/game-jumbotron/RainbowSixSiege.png') ,
-          btnText: "立即购买"
-        },
-        {
-          id: 2,
-          header: "浏览",
-          lead: "探索我们的目录，寻找下一款心仪游戏！",
-          bgImgSrc: require('../assets/img/game-jumbotron/Browse.png'),
-          btnText: "开始浏览"
-        }
-      ]
     };
-  }
-};
 </script>
 
 <style scoped>
-.row-title {
-  color: white;
-  font-size: 1.17em;
-  margin-top: 3%;
-}
+    .row-title {
+        color: white;
+        font-size: 1.17em;
+        margin-top: 3%;
+    }
 </style>
