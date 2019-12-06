@@ -26,7 +26,7 @@ const routes = [
     {path: '/login', component: LoginContent},
     {path: '/join', component: JoinContent},
     {path: '/browse', component: BrowseContent},
-    {path: '/detail', component: DetailContent},
+    {path: '/product/:id', component: DetailContent},
     {path: '/browse', component: BrowseContent, props: (route) => ({kw: route.query.kw})},
     {path: '/cart', component: Cart},
     {path: '/cart_blank', component: CartBlank}

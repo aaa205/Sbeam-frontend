@@ -10,8 +10,7 @@
       <div v-for="item in items" v-bind:key="item.id">
         <cart-item :item="item" :items="items" v-model="items"></cart-item>
       </div>
-
-      <cart-bottom-bar></cart-bottom-bar>
+      <cart-bottom-bar :items=items></cart-bottom-bar>
     </div>
   </b-container>
 </template>
