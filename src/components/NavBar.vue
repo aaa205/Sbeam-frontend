@@ -9,16 +9,16 @@
                     <b-nav-item to="/">
                         探索
                     </b-nav-item>
-                    <b-nav-item to="/browse">商城</b-nav-item>
+                    <b-nav-item to="/browse">浏览</b-nav-item>
                 </b-navbar-nav>
                 <b-nav-form class="mx-auto">
                     <b-input placeholder="搜索" v-model="kw" @keyup.enter="toBrowse"></b-input>
                 </b-nav-form>
                 <b-navbar-nav>
                     <b-nav-item to="/cart">购物车</b-nav-item>
-                    <b-nav-item v-if="!this.userName" to="/login">登录</b-nav-item>
+                    <b-nav-item v-if="!this.isLogin" to="/login">登录</b-nav-item>
                     <b-nav-item v-else>
-                        <b-img width="25" height="25" center rounded="circle" v-bind:src="avatar"></b-img>
+                        <b-img width="25" height="25" center rounded="circle" v-bind:src="this.avatar"></b-img>
                     </b-nav-item>
                 </b-navbar-nav>
             </b-collapse>
@@ -27,27 +27,27 @@
 </template>
 
 <script>
+    import {mapState} from 'vuex'
+
     export default {
         name: "NavBar",
         data() {
             return {
-                userName: null,
-                avatar: '',
-                userID: 0,
                 kw: ''
             }
         },
-        mounted() {
-            this.getLoginState()
-        },
+        computed: mapState({
+            isLogin: state => state.user.isLogin,
+            userName: state => state.user.info.userName,
+            userID: state => state.user.info.userID,
+            avatar: state => {
+                if (state.user.info.avatar)
+                    return require('../assets/' + state.user.info.avatar)
+                else
+                    return require('../assets/img/avatar/default_avatar.png')
+            }
+        }),
         methods: {
-            getLoginState() {
-                this.userName = this.$cookies.get('userName')
-                this.userID = this.$cookies.get('userID')
-                let img = this.$cookies.get('avatar')
-                if (img)
-                    this.avatar = require('../assets/' + img)
-            },
             toBrowse() {
                 this.kw.trim()
                 this.$router.push({path: '/browse', query: {kw: this.kw}})

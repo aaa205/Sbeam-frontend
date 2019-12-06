@@ -80,8 +80,8 @@
                         window.console.log(resp.data)
                         return
                     }
-                    //登录成功,搞不到跳转首页
-                    this.$router.go(0)//刷新整个页面
+                    //登录成功,跳转首页,路由跳转时会检查登录状态
+                    this.$router.push({path:'/'})
                 })
             }
         }
