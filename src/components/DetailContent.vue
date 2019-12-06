@@ -1,8 +1,8 @@
 <template>
     <b-container>
         <div>
-            <b-row class="my-5 text-left" >
-                <b-col md="4" >
+            <b-row class="my-5 text-left">
+                <b-col md="4">
                     <router-link class="text-white-50" to="/">返回首页</router-link>
                     <span class="mx-2 text-white">
                         |
@@ -45,7 +45,7 @@
                 <b-col md="3">
                     <div class="text-white text-right">
                         <div class="mt-4 h5">
-                            <span>US${{product.price}}+</span>
+                            <span>US${{product.price}}</span>
                         </div>
                         <div class="mt-2">
                             <b-button href="#" class="w-50" variant="danger">购买</b-button>
@@ -114,8 +114,8 @@
                                     <span>平台</span>
                                 </div>
                                 <div class="text-white text-left">
-                                    <span>{{product_spec[0].os}}</span>
-                                    <span>{{product_spec[1].os}}</span>
+                                    <span>{{product.spec[0].os}}</span>
+                                    <span>{{product.spec[0].os}}</span>
                                 </div>
                             </b-col>
                         </b-row>
@@ -126,9 +126,6 @@
                         </div>
                         <div class="text-left text-white">
                             <span>
-                                {{product.description}}<br><br>
-                                {{product.description}}<br><br>
-                                {{product.description}}<br><br>
                                 {{product.description}}<br><br>
                                 {{product.description}}<br><br>
                             </span>
@@ -156,12 +153,16 @@
                             </b-collapse>
                         </div>
                         <div>
-<!--                            <b-button class="w-100" v-b-toggle.collapse-1 variant="danger" @click="change" v-show="show">{{msg}}</b-button>-->
+                            <!--                            <b-button class="w-100" v-b-toggle.collapse-1 variant="danger" @click="change" v-show="show">{{msg}}</b-button>-->
                             <template v-if="show">
-                                <b-button class="w-100" v-b-toggle.collapse-1 variant="danger" @click="show = !show">显示更多内容</b-button>
+                                <b-button class="w-100" v-b-toggle.collapse-1 variant="danger" @click="show = !show">
+                                    显示更多内容
+                                </b-button>
                             </template>
                             <template v-else>
-                                <b-button class="w-100" v-b-toggle.collapse-1 variant="danger" @click="show = !show">显示更少内容</b-button>
+                                <b-button class="w-100" v-b-toggle.collapse-1 variant="danger" @click="show = !show">
+                                    显示更少内容
+                                </b-button>
                             </template>
                         </div>
                     </div>
@@ -195,7 +196,7 @@
                                     <span>操作系统</span>
                                 </div>
                                 <div class="text-white">
-                                    <span>{{product_spec[0].os}}</span>
+                                    <span>{{product.spec[0].os}}</span>
                                 </div>
                             </b-col>
                             <b-col md="6">
@@ -203,7 +204,7 @@
                                     <span>操作系统</span>
                                 </div>
                                 <div class="text-white">
-                                    <span>{{product_spec[1].os}}</span>
+                                    <span>{{product.spec[0].os}}</span>
                                 </div>
                             </b-col>
                         </b-row>
@@ -213,7 +214,7 @@
                                     <span>处理器</span>
                                 </div>
                                 <div class="text-white">
-                                    <span>{{product_spec[0].cpu}}</span>
+                                    <span>{{product.spec[0].cpu}}</span>
                                 </div>
                             </b-col>
                             <b-col md="6">
@@ -221,7 +222,7 @@
                                     <span>处理器</span>
                                 </div>
                                 <div class="text-white">
-                                    <span>{{product_spec[1].cpu}}</span>
+                                    <span>{{product.spec[0].cpu}}</span>
                                 </div>
                             </b-col>
                         </b-row>
@@ -231,7 +232,7 @@
                                     <span>显卡</span>
                                 </div>
                                 <div class="text-white">
-                                    <span>{{product_spec[0].gpu}}</span>
+                                    <span>{{product.spec[0].gpu}}</span>
                                 </div>
                             </b-col>
                             <b-col md="6">
@@ -239,7 +240,7 @@
                                     <span>显卡</span>
                                 </div>
                                 <div class="text-white">
-                                    <span>{{product_spec[1].gpu}}</span>
+                                    <span>{{product.spec[0].gpu}}</span>
                                 </div>
                             </b-col>
                         </b-row>
@@ -249,7 +250,7 @@
                                     <span>内存</span>
                                 </div>
                                 <div class="text-white">
-                                    <span>{{product_spec[0].ram}}</span>
+                                    <span>{{product.spec[0].ram}}</span>
                                 </div>
                             </b-col>
                             <b-col md="6">
@@ -257,7 +258,7 @@
                                     <span>内存</span>
                                 </div>
                                 <div class="text-white">
-                                    <span>{{product_spec[1].ram}}</span>
+                                    <span>{{product.spec[0].ram}}</span>
                                 </div>
                             </b-col>
                         </b-row>
@@ -280,66 +281,39 @@
 </template>
 
 <script>
+    import {getProductDetailById} from "@/apis/api";
+
     export default {
         name: "DetailContent",
-        data(){
+        data() {
             return {
-                back:'商城',
-                show :true,
-                msg :'显示更多内容',
-                product:{
-                    id:1,
-                    name:'荒野大镖客：救赎2',
-                    description :'Rockstar Games出品的史诗般的开放世界游戏《荒野大镖客：救赎2》不仅好评如潮，也是主机世代评分最高的游戏，PC版更是添加了全新故事模式内容，并进行了视觉效果升级等各项改进。',
-                    price :99.99,
-                    release_date:'2019年11月09日',
-                    developer:'Rockstar Games',
-                    is_single_player:true,
-                    is_multi_player:false,
-                    is_could_save:true,
-                    supported_languages:'英语,法语,意大利语,德语,西班牙语,葡萄牙语（巴西）,日语,简体中文,繁体中文',
-                    publisher :'Rockstar Games',
-                    card_img:require('../assets/img/game-card/Death Stranding.jpg'),
-                    img_0:require('../assets/img/game-detail/Death Stranding-0.jpg'),
-                    img_1:require('../assets/img/game-detail/Death Stranding-1.jpg'),
-                    img_2:require('../assets/img/game-detail/Death Stranding-2.jpg'),
-                    img_3:require('../assets/img/game-detail/Death Stranding-3.jpg'),
-                    logo_img:require('../assets/img/game-logo/Borderlands 3.png')
-                },
-                product_spec:[
-                    {
-                        product_id :1,
-                        os_id:0,
-                        os:'Win 10、8和7 SP1+（64位）',
-                        cpu :'Intel Core i3/AMD Phenom II X3',
-                        gpu :'NvidiaGeForce GTX 660/AMD Radeon R9 270',
-                        ram :'8 GB内存'
-                    },
-                    {
-                        product_id :1,
-                        os_id:0,
-                        os:'Win 10、8和7 SP1+（64位）',
-                        cpu :'Intel Core i5 3GHz/AMD FX系列3.2GHz',
-                        gpu :'Nvidia GeForce GTX 1060/AMD Radeon R9 390X',
-                        ram :'16 GB内存'
-                    },
-                    {
-                        product_id :1,
-                        os_id:1,
-                        os:'Mac OSX 10.11 64位',
-                        cpu :'Intel Core i3',
-                        gpu :'Radeon Pro 555',
-                        ram :'8 GB内存'
-                    },
-                    {
-                        product_id :1,
-                        os_id:1,
-                        os:'Mac OSX 10.11 64位',
-                        cpu :'Intel Core i5',
-                        gpu :'AMD Radeon Pro Vega 64',
-                        ram :'16 GB内存'
+                back: '商城',
+                show: true,
+                msg: '显示更多内容',
+                product: {
+                    spec: [{
+
+                    }]
+                }
+            }
+        },
+        mounted() {
+            this.getDetail()
+        },
+        methods: {
+            getDetail() {
+                getProductDetailById(this.$route.params.id).then(resp => {
+                    if (resp.status == 200) {
+                        resp.data.logo_img = require('../assets/' + resp.data.logo_img)
+                        resp.data.img_0 = require('../assets/' + resp.data.img_0)
+                        resp.data.img_1 = require('../assets/' + resp.data.img_1)
+                        resp.data.img_2 = require('../assets/' + resp.data.img_2)
+                        resp.data.img_3 = require('../assets/' + resp.data.img_3)
+                        this.product=resp.data
+                    } else if (resp.status == 404) {
+                        //todo 以后加个404页面
                     }
-                ]
+                })
             }
         }
     }
