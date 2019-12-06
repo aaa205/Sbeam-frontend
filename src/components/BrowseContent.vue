@@ -101,7 +101,7 @@
         },
         methods: {
             searchGameCards() {
-                getGameCards({kw: this.$attrs.kw}).then(resp => {
+                getGameCards({kw: this.$route.query.kw}).then(resp => {
                     if (resp.status != 200)
                         window.console.log(resp.data)
                     //转换图片路径
@@ -109,8 +109,10 @@
                     for (let i = 0, l = res.length; i < l; i++) {
                         res[i].card_img = require('../assets/' + res[i].card_img)
                         res[i].logo_img = require('../assets/' + res[i].logo_img)
+                        //这张图有问题，不用
+                        if(res[i].id==1)
+                            res[i].logo_img=''
                     }
-                    res[0].logo_img = ''//id:1游戏的logo图是黑底，不放了
                     this.cards = res
                 })
             }
