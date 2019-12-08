@@ -41,7 +41,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .sb-cart-bottombar {
   margin: 30px 15px;
   text-align: right;
