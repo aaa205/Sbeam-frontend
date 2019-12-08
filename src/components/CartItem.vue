@@ -7,7 +7,9 @@
         id="selectAll"
         value="selected"
         unchecked-value="not-selected"
-      >{{item.id}}</b-form-checkbox>
+      >
+        <span v-if="isLargeWidth">{{item.id}}</span>
+      </b-form-checkbox>
     </b-col>
     <!-- 游戏图 -->
     <b-col class="col-3 sb-cart-img">
@@ -56,33 +58,42 @@ export default {
   },
   data() {
     return {
-      
+      screenWidth: document.body.clientWidth,
+      isSmallWidth: false,
+      isLargeWidth: !this.isSmallWidth
     };
   },
   methods: {
-    add(){
-      if(this.item.quantity<0){
+    add() {
+      if (this.item.quantity < 0) {
         this.item.quantity = 0;
       }
       this.item.quantity++;
-      this.addup()
+      this.addup();
     },
-    sub(){
-      if(this.item.quantity<=0){
-        alert('不能再减少数量啦！')
-        this.item.quantity = 0
+    sub() {
+      if (this.item.quantity <= 0) {
+        alert("不能再减少数量啦！");
+        this.item.quantity = 0;
       } else {
-        this.item.quantity--
+        this.item.quantity--;
       }
     },
-    del(){
-      this.items.slice(this.item.id-1,1)
+    del() {
+      this.items.slice(this.item.id - 1, 1);
     }
+  },
+  mounted(){
+    if(this.screenWidth<=992){
+      this.isSmallWidth = true
+    }
+    this.isLargeWidth = !this.isSmallWidth
+    // alert(this.isLargeWidth+' '+this.isSmallWidth)
   }
 };
 </script>
 
-<style>
+<style scoped>
 .sb-cart-a:hover {
   font-style: italic;
   text-decoration-line: underline;
@@ -137,11 +148,14 @@ export default {
 }
 
 @media screen and (max-width: 992px) {
+  .sb-cart-mId {
+    visibility: hidden;
+  }
   .sb-cart-checkbox {
     top: 15px;
   }
   .sb-cart-row {
-    height: 55px;
+    height: 100px;
   }
   .sb-cart-align {
     text-align: center;

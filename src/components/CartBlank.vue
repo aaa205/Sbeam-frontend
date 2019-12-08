@@ -15,7 +15,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 .row-title {
   color: white;
   font-size: 1.17em;
