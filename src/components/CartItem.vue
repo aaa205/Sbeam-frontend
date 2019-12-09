@@ -62,21 +62,6 @@
             };
         },
         methods: {
-            add() {
-                if (this.item.quantity < 0) {
-                    this.item.quantity = 0;
-                }
-                this.item.quantity++;
-                this.addup();
-            },
-            sub() {
-                if (this.item.quantity <= 0) {
-                    alert("不能再减少数量啦！");
-                    this.item.quantity = 0;
-                } else {
-                    this.item.quantity--;
-                }
-            }
         },
         mounted() {
             if (this.screenWidth <= 992) {

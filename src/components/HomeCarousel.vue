@@ -18,7 +18,7 @@ export default {
     CarouselData: Array
   },
   data() {
-    return {};
+    return {}
   },
   name: "HomeCarousel"
 };
