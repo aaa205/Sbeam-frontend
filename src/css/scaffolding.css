@@ -30,6 +30,19 @@ h1 h2 h3 h4 h5 h6 {
 
 }
 
+:focus {
+    outline: #bcbcbc auto 1px;
+    outline-color: #bcbcbc;
+    outline-style: auto;
+    outline-width: 0px;
+}
+.dropdown-divider {
+    height: 0;
+    margin: 0.5rem 0;
+    overflow: hidden;
+    border-top: 1px solid #8d8d8d;
+}
+
 .card_title {
     letter-spacing: .01rem;
     line-height: 1.4;
@@ -71,7 +84,9 @@ h1 h2 h3 h4 h5 h6 {
     max-width: 100%;
 }
 
-
+.dropdown-menu{
+    background-color: #2a2a2a;
+}
 
 .sb-bgc-pink{
     background-color: pink;

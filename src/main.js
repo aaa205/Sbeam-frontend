@@ -39,7 +39,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
     let isLogin=Vue.cookies.get('isLogin')
     let user=store.state.user
-    if(isLogin){
+    if(isLogin=='true'){
         user.isLogin=true
         user.info={
             userID:Vue.cookies.get('userID'),
