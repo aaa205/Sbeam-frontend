@@ -3,8 +3,7 @@
     <div class="sb-jumbotron sb-bgc-grey sb-cart-div">
       <div class="sb-jumbotron sb-bgc-grey sb-cart-div">
         <b-jumbotron class="sb-cart-bg" header="您的购物车为空！" lead="请探索更多商品……">
-          <b-button href="#">立即购物</b-button>
-          <b-button href="#" to="/cart">去隔壁</b-button>
+          <b-button variant="info" to="/">立即购物</b-button>
         </b-jumbotron>
       </div>
     </div>

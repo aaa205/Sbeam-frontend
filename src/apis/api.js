@@ -9,6 +9,10 @@ export const register = params => {
 export const login = params => {
     return axios.post(`${host}/login`, params,{withCredentials: true})
 }
+//注销登录
+export const logout=()=>{
+    return axios.get(`${host}/logout`,{withCredentials:true})
+}
 //获取GameCard
 export const getGameCards = params => {
     return axios.get(`${host}/games`, {params: params})

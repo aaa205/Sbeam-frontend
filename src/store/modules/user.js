@@ -15,7 +15,12 @@ const mutations = {
         state.info = userInfo
     }
 }
-const actions = {}
+const actions = {
+    logout({state,commit}){
+        commit('setLogin',false)
+        window.console.log(`vuex change :user ${state.info.name} logout`)
+    }
+}
 
 export default {
     namespaced: true,
