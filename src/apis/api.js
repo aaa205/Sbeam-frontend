@@ -27,5 +27,5 @@ export const getProductDetailById=id=>{
 }
 //获取购物车
 export const getCartItems=()=>{
-    return axios.get(`${host}/cart`)
+    return axios.get(`${host}/cart`,{withCredentials:true})
 }

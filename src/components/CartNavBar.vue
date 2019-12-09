@@ -1,7 +1,7 @@
 <template>
   <b-row class="sb-cart-navbar">
     <b-col class="col-1 sb-head">
-      <b-form-checkbox id="selectAll" value="selected" unchecked-value="not-selected" style="text-align: left"></b-form-checkbox>
+      <b-form-checkbox id="selectAll" value="selected" unchecked-value="not-selected" style="text-align: left">全选</b-form-checkbox>
     </b-col>
     <b-col class="col-6 sb-head">商品信息</b-col>
     <b-col class="col-1 sb-head">单价</b-col>

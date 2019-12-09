@@ -3,9 +3,9 @@
         <b-col class="col-7"></b-col>
         <b-col class="col-3">
             <div class="sb-cart-total">
-                <p>
-                    总价： $
-                    <span class="sb-cart-number">{{total}}</span>
+                <p class="sb-cart-number">
+                    总价：
+                    <span style="color: #91dba2;">${{total.toFixed(2)}}</span>
                 </p>
             </div>
         </b-col>
@@ -18,10 +18,14 @@
 </template>
 
 <script>
+    import {mapGetters} from "vuex";
+
     export default {
         name: "CartBottomBar",
-        props: {
-            total: Number
+        computed:{
+            ...mapGetters('cart',{
+                total:'cartTotalPrice'
+            })
         }
     }
 </script>
@@ -47,7 +51,7 @@
     }
 
     .sb-cart-number {
-        color: gold;
-        font-size: 130%;
+
+        font-size: 120%;
     }
 </style>
