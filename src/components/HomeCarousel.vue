@@ -6,7 +6,6 @@
         :key="index"
         :img-src="CarouselItem.imgSrc"
         class="sb-carousel-size"
-        :caption="CarouselItem.Gname"
       ></b-carousel-slide>
     </b-carousel>
   </div>

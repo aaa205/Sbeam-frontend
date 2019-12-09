@@ -5,7 +5,7 @@
             <div class="sb-cart-total">
                 <p class="sb-cart-number">
                     总价：
-                    <span style="color: #91dba2;">${{total.toFixed(2)}}</span>
+                    <span class="sb-cart-number">${{total.toFixed(2)}}</span>
                 </p>
             </div>
         </b-col>
@@ -51,7 +51,7 @@
     }
 
     .sb-cart-number {
-
+        color: #91dba2;
         font-size: 120%;
     }
 </style>

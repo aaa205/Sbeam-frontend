@@ -9,10 +9,7 @@
 
 <script>
 export default {
-  name: "CartNavBarMobile",
-  props: {
-    item: Object
-  }
+  name: "CartNavBarMobile"
 };
 </script>
 

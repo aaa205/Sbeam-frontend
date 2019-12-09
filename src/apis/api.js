@@ -33,3 +33,7 @@ export const getCartItems = () => {
 export const addCartItems = params => {
     return axios.get(`${host}/cart/addCartItems`, {params: params, withCredentials: true})
 }
+//异步更新购物车
+export const asynUpdate = params => {
+    return axios.post(`${host}/cart/asynUpdate`, params, {withCredentials: true})
+}

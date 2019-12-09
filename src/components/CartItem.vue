@@ -2,12 +2,7 @@
     <b-row class="sb-cart-row">
         <!-- 复选框 -->
         <b-col class="col-1 sb-cart-col">
-            <b-form-checkbox
-                    class="sb-cart-checkbox"
-                    id="selectAll"
-                    value="selected"
-                    unchecked-value="not-selected"
-            >
+            <b-form-checkbox class="sb-cart-checkbox"  v-model="checked" @input="setSelected">
                 <span v-if="isLargeWidth">{{index}}</span>
             </b-form-checkbox>
         </b-col>
@@ -34,13 +29,14 @@
         </b-col>
         <!-- 数量 -->
         <b-col class="col-2 sb-cart-align number_input ">
-            <b-input  type="number" v-model="item.quantity" max="99" min="1" class="number_input" size="sm"/>
+            <b-input type="number" v-model="item.quantity" max="99" min="1" class="number_input" size="sm"
+                     @change="asynUpdateItem"/>
         </b-col>
         <!-- 总价 -->
         <b-col class="col-1 sb-cart-align">{{(item.quantity*item.price).toFixed(2)}}</b-col>
         <!-- 操作 -->
-        <b-col class="1">
-            <a href="#" @click="del()">
+        <b-col class="col-1">
+            <a href="#" @click="asynDeleteItem">
                 <p class="sb-cart-align sb-cart-a">删除</p>
             </a>
         </b-col>
@@ -48,20 +44,48 @@
 </template>
 
 <script>
+    import {asynUpdate} from "@/apis/api";
+
     export default {
         name: "CartItem",
         props: {
             item: Object,//{id,quantity,price,name,description,logo_img}
-            index: Number,
+            index: Number
         },
         data() {
             return {
                 screenWidth: document.body.clientWidth,
                 isSmallWidth: false,
-                isLargeWidth: !this.isSmallWidth
+                isLargeWidth: !this.isSmallWidth,
+                checked:false
             };
         },
+
         methods: {
+            asynDeleteItem() {
+                //{product_id:1,quantity:2,type="delete"}删除 此时quantity参数不影响结果
+                this.$store.dispatch('cart/delete', this.item)//先删除本地的
+                asynUpdate({product_id: this.item.id, quantity: this.item.quantity, type: 'delete'}).then(resp => {
+                    if (resp.status == 200) {
+                        if (resp.data.ret == 0)
+                            window.console.log("删除成功")
+                    }
+                })
+            },
+            asynUpdateItem() {
+                asynUpdate({product_id: this.item.id, quantity: this.item.quantity, type: 'update'}).then(resp => {
+                    if (resp.status == 200) {
+                        if (resp.data.ret == 0)
+                            window.console.log("更新成功")
+                    }
+                })
+            },
+            setSelected(){
+                if(this.checked)
+                    this.$store.commit('cart/selectItem',this.item)
+                else
+                    this.$store.commit('cart/notSelectItem',this.item)
+            }
         },
         mounted() {
             if (this.screenWidth <= 992) {
@@ -86,12 +110,14 @@
         border: 1px solid #5f5f5f;
         vertical-align: middle;
     }
-    .number_input{
+
+    .number_input {
         width: 45%;
         display: table;
         margin-left: auto;
         margin-right: auto;
     }
+
     .sb-cart-col {
         height: 100%;
         width: 100%;

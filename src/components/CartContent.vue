@@ -10,7 +10,7 @@
                 <cart-nav-bar v-if="isLargeWidth"></cart-nav-bar>
                 <cart-nav-bar-mobile v-if="isSmallWidth"></cart-nav-bar-mobile>
                 <div v-for="(item,index) in this.items" v-bind:key="index" >
-                    <cart-item v-if="isLargeWidth" :item="item" :index="index+1"></cart-item>
+                    <cart-item v-if="isLargeWidth" :item="item" :index="index+1" ></cart-item>
                     <cart-item-mobile v-if="isSmallWidth" :item="item" :index="index+1"></cart-item-mobile>
                 </div>
                 <cart-bottom-bar v-if="isLargeWidth"></cart-bottom-bar>
@@ -65,7 +65,8 @@
         },
         computed: {
             ...mapState({
-                items: state => state.cart.items
+                items: state => state.cart.items,
+                selected:state=>state.cart.selected
             }),
             ...mapGetters('cart', {
                 total: 'cartTotalPrice'

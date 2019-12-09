@@ -4,8 +4,8 @@
     <b-col class="col-5">
       <div class="sb-cart-total">
         <p>
-          总价：￥
-          <span class="sb-cart-number">{{total}}</span>
+          总价：
+          <span class="sb-cart-number">${{total.toFixed(2)}}</span>
         </p>
       </div>
     </b-col>
@@ -20,26 +20,15 @@
 </template>
 
 <script>
+import {mapGetters} from "vuex";
+
 export default {
   name: "CartBottomBarMobile",
-  props: {
-    items: []
-  },
-  data() {
-    return {
-      total: 0
-    };
-  },
-  methods: {
-    addup() {
-      this.items.forEach(item => {
-        this.total = this.total + item.quantity * item.price;
-      });
+  computed:{
+        ...mapGetters('cart',{
+            total:'cartTotalPrice'
+        })
     }
-  },
-  mounted: function() {
-    this.addup();
-  }
 };
 </script>
 
@@ -61,7 +50,7 @@ div {
   text-align: center;
 }
 .sb-cart-number {
-  color: #ffa433;
-  font-size: 120%;
+    color: #91dba2;
+    font-size: 120%;
 }
 </style>
