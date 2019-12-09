@@ -61,7 +61,7 @@ div {
   text-align: center;
 }
 .sb-cart-number {
-  color: gold;
+  color: #ffa433;
   font-size: 120%;
 }
 </style>

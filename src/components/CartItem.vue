@@ -21,10 +21,10 @@
     <b-col class="col-3 sb-cart-col">
       <a href="#" class="sb-cart-atext">
         <b-row class="sb-cart-Gtitle">
-          <h5 class="sb-cart-h5 sb-cart-a">{{item.Gname}}</h5>
+          <h6 class="sb-cart-h5 ">{{item.Gname}}</h6>
         </b-row>
         <b-row class="sb-cart-Gintro">
-          <p class="sb-cart-p sb-cart-a">{{item.Introduction}}</p>
+          <p class="sb-cart-p  text-white-50">{{item.Introduction}}</p>
         </b-row>
       </a>
     </b-col>
@@ -95,7 +95,7 @@ export default {
 
 <style scoped>
 .sb-cart-a:hover {
-  font-style: italic;
+
   text-decoration-line: underline;
 }
 .sb-cart-row {

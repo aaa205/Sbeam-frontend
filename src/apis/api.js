@@ -21,3 +21,7 @@ export const getIndex = () => {
 export const getProductDetailById=id=>{
     return axios.get(`${host}/games/${id}`)
 }
+//获取购物车
+export const getCartItems=()=>{
+    return axios.get(`${host}/cart`)
+}

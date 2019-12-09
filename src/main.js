@@ -10,7 +10,7 @@ import VueAxios from "vue-axios";
 import LoginContent from "@/components/LoginContent";
 import JoinContent from "@/components/JoinContent";
 import BrowseContent from "@/components/BrowseContent";
-import Cart from "@/components/Cart";
+import Cart from "@/components/CartContent";
 import CartBlank from "@/components/CartBlank";
 import './css/scaffolding.css'
 import DetailContent from "@/components/DetailContent";
