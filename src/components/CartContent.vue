@@ -1,6 +1,6 @@
 <template>
     <b-container class="sb-cart-container">
-        <div class="sb-jumbotron sb-bgc-grey sb-cart-div">
+        <div v-if="!this.isEmpty" class="sb-jumbotron sb-bgc-grey sb-cart-div">
             <b-row>
                 <b-col>
                     <h3 class="row-title sb-title-leftpadding">购物车</h3>
@@ -9,20 +9,22 @@
             <div>
                 <cart-nav-bar v-if="isLargeWidth"></cart-nav-bar>
                 <cart-nav-bar-mobile v-if="isSmallWidth"></cart-nav-bar-mobile>
-                <div v-for="(item,index) in this.items" v-bind:key="index" >
-                    <cart-item v-if="isLargeWidth" :item="item" :index="index+1" ></cart-item>
+                <div v-for="(item,index) in this.items" v-bind:key="index">
+                    <cart-item v-if="isLargeWidth" :item="item" :index="index+1"></cart-item>
                     <cart-item-mobile v-if="isSmallWidth" :item="item" :index="index+1"></cart-item-mobile>
                 </div>
                 <cart-bottom-bar v-if="isLargeWidth"></cart-bottom-bar>
                 <cart-bottom-bar-mobile v-if="isSmallWidth"></cart-bottom-bar-mobile>
             </div>
         </div>
+        <CartBlank v-else></CartBlank>
     </b-container>
 </template>
 
 
 <script>
     import CartItem from "@/components/CartItem";
+    import CartBlank from "@/components/CartBlank";
     import CartItemMobile from "@/components/CartItemMobile";
     import CartNavBar from "@/components/CartNavBar";
     import CartNavBarMobile from "@/components/CartNavBarMobile";
@@ -32,7 +34,15 @@
     import {mapGetters, mapState} from "vuex";
 
     export default {
-        components: {CartItem, CartNavBar, CartBottomBar, CartItemMobile, CartNavBarMobile, CartBottomBarMobile},
+        components: {
+            CartBlank,
+            CartItem,
+            CartNavBar,
+            CartBottomBar,
+            CartItemMobile,
+            CartNavBarMobile,
+            CartBottomBarMobile
+        },
         data() {
             return {
                 screenWidth: document.body.clientWidth,
@@ -57,19 +67,21 @@
                         })
                         window.console.log(resp.data)
                         this.$store.dispatch('cart/setAllItems', resp.data.items)
-                    }else if(resp.status==403){
+                    } else if (resp.status == 403) {
                         window.alert('请先登录')
                     }
                 })
-            }
+            },
+
         },
         computed: {
             ...mapState({
-                items: state => state.cart.items,
-                selected:state=>state.cart.selected
+                items: state => state.cart.items
+
             }),
             ...mapGetters('cart', {
-                total: 'cartTotalPrice'
+                total: 'cartTotalPrice',
+                isEmpty: 'isEmpty'
             })
         }
     }

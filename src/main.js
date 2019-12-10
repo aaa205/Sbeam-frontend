@@ -11,7 +11,6 @@ import LoginContent from "@/components/LoginContent";
 import JoinContent from "@/components/JoinContent";
 import BrowseContent from "@/components/BrowseContent";
 import Cart from "@/components/CartContent";
-import CartBlank from "@/components/CartBlank";
 import './css/scaffolding.css'
 import DetailContent from "@/components/DetailContent";
 import VueCookies from 'vue-cookies'
@@ -28,8 +27,7 @@ const routes = [
     {path: '/browse', component: BrowseContent},
     {path: '/product/:id', component: DetailContent},
     {path: '/browse', component: BrowseContent, props: (route) => ({kw: route.query.kw})},
-    {path: '/cart', component: Cart},
-    {path: '/cart_blank', component: CartBlank}
+    {path: '/cart', component: Cart}
 ]
 const router = new VueRouter({
     routes

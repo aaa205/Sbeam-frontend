@@ -60,7 +60,6 @@
                 checked:false
             };
         },
-
         methods: {
             asynDeleteItem() {
                 //{product_id:1,quantity:2,type="delete"}删除 此时quantity参数不影响结果
