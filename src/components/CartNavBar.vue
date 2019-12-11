@@ -3,7 +3,7 @@
     <b-col class="col-1 sb-head">
       <b-form-checkbox id="selectAll" value="selected" unchecked-value="not-selected" style="text-align: left"></b-form-checkbox>
     </b-col>
-    <b-col class="col-6 sb-head">商品信息</b-col>
+    <b-col class=" offset-3 col-3 sb-head">商品信息</b-col>
     <b-col class="col-1 sb-head">单价</b-col>
     <b-col class="col-2 sb-head">数量</b-col>
     <b-col class="col-1 sb-head">总价</b-col>

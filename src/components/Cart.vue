@@ -1,6 +1,6 @@
 <template>
   <b-container class="sb-cart-container">
-    <div class="sb-jumbotron sb-bgc-grey sb-cart-div">
+    <div class="sb-bgc-grey sb-cart-div">
       <b-row>
         <b-col>
           <h3 class="row-title sb-title-leftpadding">全部商品</h3>
@@ -10,11 +10,11 @@
         <cart-nav-bar v-if="isLargeWidth"></cart-nav-bar>
         <cart-nav-bar-mobile v-if="isSmallWidth"></cart-nav-bar-mobile>
         <div v-for="item in items" v-bind:key="item.id">
-          <cart-item v-if="isLargeWidth" :item="item" :items="items" v-model="items"></cart-item>
-          <cart-item-mobile v-if="isSmallWidth" :item="item" :items="items" v-model="items"></cart-item-mobile>
+          <cart-item v-if="isLargeWidth" :item="item" v-model="items"></cart-item>
+          <cart-item-mobile v-if="isSmallWidth" :item="item"></cart-item-mobile>
         </div>
-        <cart-bottom-bar v-if="isLargeWidth" :items="items"></cart-bottom-bar>
-        <cart-bottom-bar-mobile v-if="isSmallWidth" :items="items"></cart-bottom-bar-mobile>
+        <cart-bottom-bar v-if="isLargeWidth"></cart-bottom-bar>
+        <cart-bottom-bar-mobile v-if="isSmallWidth"></cart-bottom-bar-mobile>
       </div>
     </div>
   </b-container>
@@ -96,6 +96,8 @@ export default {
   padding-left: 100px;
 }
 .sb-cart-div {
+  text-align: left;
+  color: white;
   margin-top: 20px;
 }
 body {

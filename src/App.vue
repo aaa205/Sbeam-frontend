@@ -2,7 +2,7 @@
   <div id="app">
     <nav-bar></nav-bar>
     <router-view></router-view>
-    <Footer class="sb-cart-fit"></Footer>
+    <Footer></Footer>
   </div>
 </template>
 

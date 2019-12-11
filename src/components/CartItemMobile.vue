@@ -64,8 +64,7 @@
 export default {
   name: "CartItemMobile",
   props: {
-    item: Object,
-    items: []
+    item: Object
   },
   data() {
     return {};

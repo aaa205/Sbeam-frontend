@@ -53,8 +53,7 @@
 export default {
   name: "CartItem",
   props: {
-    item: Object,
-    items: []
+    item: Object
   },
   data() {
     return {
@@ -83,11 +82,11 @@ export default {
       this.items.slice(this.item.id - 1, 1);
     }
   },
-  mounted(){
-    if(this.screenWidth<=992){
-      this.isSmallWidth = true
+  mounted() {
+    if (this.screenWidth <= 992) {
+      this.isSmallWidth = true;
     }
-    this.isLargeWidth = !this.isSmallWidth
+    this.isLargeWidth = !this.isSmallWidth;
     // alert(this.isLargeWidth+' '+this.isSmallWidth)
   }
 };
