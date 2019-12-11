@@ -29,7 +29,6 @@ const routes = [
     { path: '/product/:id', component: DetailContent },
     { path: '/browse', component: BrowseContent, props: (route) => ({ kw: route.query.kw }) },
     { path: '/cart', component: Cart },
-    { path: '/cart_blank', component: CartBlank },
     { path: '/order', component: Order }
 ]
 const router = new VueRouter({
