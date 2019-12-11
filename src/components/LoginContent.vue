@@ -80,8 +80,10 @@
                         window.console.log(resp.data)
                         return
                     }
+
+                }).finally(() => {
                     //登录成功,跳转首页,路由跳转时会检查登录状态
-                    this.$router.push({path:'/'})
+                    this.$router.push({path: '/'})
                 })
             }
         }

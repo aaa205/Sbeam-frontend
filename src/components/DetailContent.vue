@@ -35,7 +35,7 @@
                             <span>US${{product.price}}</span>
                         </div>
                         <div class="mt-2">
-                            <b-button href="#" class="w-50" variant="danger">购买</b-button>
+                            <b-button @click="addToCart" class="w-50" variant="danger">购买</b-button>
                         </div>
                     </div>
                 </b-col>
@@ -268,7 +268,7 @@
 </template>
 
 <script>
-    import {getProductDetailById} from "@/apis/api";
+    import {addCartItems, getProductDetailById} from "@/apis/api";
     import HomeCarousel from "@/components/HomeCarousel";
 
     export default {
@@ -305,6 +305,16 @@
                             {id: 4, imgSrc: this.product.img_3,Gname:''}]
                     } else if (resp.status == 404) {
                         //todo 以后加个404页面
+                    }
+                })
+            },
+            addToCart(){
+                let add=JSON.stringify({product_id:this.product.id,quantity:1})
+                addCartItems({add:add}).then(resp=>{
+                    if(resp.status==403)
+                        alert('请先登录')
+                    if(resp.status==200){
+                        alert('添加成功')
                     }
                 })
             }

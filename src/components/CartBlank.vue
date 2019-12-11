@@ -11,7 +11,9 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name:'CartBlank'
+};
 </script>
 
 <style scoped>
