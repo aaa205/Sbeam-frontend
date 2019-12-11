@@ -23,7 +23,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .sb-carousel {
   margin: 20px 0;
 }

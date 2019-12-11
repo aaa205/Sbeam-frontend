@@ -11,7 +11,7 @@
         </b-col>
         <b-col class="col-2">
             <div>
-                <b-button href="#" to="/cart_blank" class="sb-cart-summit">结算</b-button>
+                <b-button class="sb-cart-summit" @click="buy" :disabled="disable">结算</b-button>
             </div>
         </b-col>
     </b-row>
@@ -22,10 +22,23 @@
 
     export default {
         name: "CartBottomBar",
-        computed:{
-            ...mapGetters('cart',{
-                total:'cartTotalPrice'
+        computed: {
+            ...mapGetters('cart', {
+                total: 'cartTotalPrice'
             })
+        },
+        data() {
+            return {
+                disable: false
+            }
+        },
+        methods: {
+            buy() {
+                this.disable = true
+                this.$store.dispatch('cart/buyProducts').finally(() => {
+                    this.disable = false
+                })
+            }
         }
     }
 </script>

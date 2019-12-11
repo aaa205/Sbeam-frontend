@@ -3,7 +3,7 @@
     <b-col class="col-1 sb-head">
       <b-form-checkbox :checked="this.allSelected" style="text-align: left">全选</b-form-checkbox>
     </b-col>
-    <b-col class="offset-1 col-5 sb-head">商品信息</b-col>
+    <b-col class=" offset-3 col-3 sb-head">商品信息</b-col>
     <b-col class="col-1 sb-head">单价</b-col>
     <b-col class="col-2 sb-head">数量</b-col>
     <b-col class="col-1 sb-head">总价</b-col>

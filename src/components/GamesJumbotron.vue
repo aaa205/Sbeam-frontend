@@ -20,7 +20,7 @@
         }
     };
 </script>
-<style>
+<style scoped>
 .sb-jumbotron {
   text-align: left;
   color: white;

@@ -37,3 +37,8 @@ export const addCartItems = params => {
 export const asynUpdate = params => {
     return axios.post(`${host}/cart/asynUpdate`, params, {withCredentials: true})
 }
+//提交订单
+export const buy = params => {
+    return axios.post(`${host}/orders`, params,
+        {withCredentials: true, headers: {'Content-Type': 'application/json'}})
+}

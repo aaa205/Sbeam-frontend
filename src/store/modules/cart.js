@@ -1,16 +1,30 @@
+import {buy} from "@/apis/api";
+
 const state = {
-    items: [],//[{id,quantity,price,name,description,logo_img,isSelected}]
-    selected: []//[id]
+    items: []//[{id,quantity,price,name,description,logo_img,isSelected}]
 }
 
 const getters = {
     cartTotalPrice: state => {
         return state.items.reduce((total, item) => {
-            return total + item.price * item.quantity
+            if (item.isSelected)
+                return total + item.price * item.quantity
+            else
+                return total
         }, 0)
     },
     isAllSelected: state => {
-        return state.items.length == state.selected.length
+        if (state.items.length == 0)
+            return false
+        for (let i = 0, l = state.items.length; i < l; i++) {
+            if (!state.items[i].isSelected) {
+                return false
+            }
+        }
+        return true
+    },
+    isEmpty: state => {
+        return state.items.length == 0
     }
 }
 const actions = {
@@ -19,6 +33,25 @@ const actions = {
     },
     delete({commit}, item) {
         commit('deleteItem', item)
+    },
+    buyProducts({commit}) {
+        //合并数据
+        let selected = state.items.filter(x=>x.isSelected).map(i=>{
+            return{
+                product_id:i.id,
+                quantity:i.quantity
+            }
+        })
+        window.console.log("sel:" +selected)
+        buy({items: selected}).then(resp => {
+            if (resp.status == 200) {
+                selected.forEach(x => {
+                    commit('deleteItem', {id: x.product_id})
+                })
+            } else {
+                window.console.log(resp.data)
+            }
+        })
     }
 
 }
@@ -43,15 +76,14 @@ const mutations = {
         })
     },
     selectItem(state, {id}) {
-        let isExist = state.selected.find(x => x === id)
-        if (!isExist)
-            state.selected.push(id)
+        let item = state.items.find(x => x.id === id)
+        if (item)
+            item.isSelected = true
     },
     notSelectItem(state, {id}) {
-        let i = state.selected.findIndex(x => x === id)
-        if (i != -1) {
-            state.selected.splice(i, 1)
-        }
+        let item = state.items.find(x => x.id === id)
+        if (item)
+            item.isSelected = false
     }
 }
 export default {
