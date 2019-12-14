@@ -35,17 +35,17 @@ const router = new VueRouter({
 
 //登录判断，通过检查cookies标记是否登录
 router.beforeEach((to, from, next) => {
-    let isLogin=Vue.cookies.get('isLogin')
-    let user=store.state.user
-    if(isLogin=='true'){
-        user.isLogin=true
-        user.info={
-            userID:Vue.cookies.get('userID'),
-            userName:Vue.cookies.get('userName'),
-            avatar:Vue.cookies.get('avatar')
+    let isLogin = Vue.cookies.get('isLogin')
+    let user = store.state.user
+    if (isLogin == 'true') {
+        user.isLogin = true
+        user.info = {
+            userID: Vue.cookies.get('userID'),
+            userName: Vue.cookies.get('userName'),
+            avatar: Vue.cookies.get('avatar')
         }
-    }else{
-        user.isLogin=false
+    } else {
+        user.isLogin = false
     }
     next()
 })
