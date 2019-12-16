@@ -26,6 +26,7 @@ export default {
 
 <style scoped>
 .sb-cart-navbar {
+  color: white;
   margin: 15px;
 }
 .sb-head {

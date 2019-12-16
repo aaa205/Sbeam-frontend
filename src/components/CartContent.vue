@@ -95,6 +95,7 @@
     }
 
     .sb-title-leftpadding {
+        text-align: left;
         padding-left: 30px;
     }
 

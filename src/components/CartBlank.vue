@@ -30,6 +30,8 @@ export default {
   padding-left: 100px;
 }
 .sb-cart-div {
+  color: white;
+  text-align: left;
   height: 500px;
   margin: 20px auto;
 }
