@@ -44,56 +44,46 @@
 </template>
 
 <script>
-    import {asynUpdate} from "@/apis/api";
-
-    export default {
-        name: "CartItem",
-        props: {
-            item: Object,//{id,quantity,price,name,description,logo_img}
-            index: Number
-        },
-        data() {
-            return {
-                screenWidth: document.body.clientWidth,
-                isSmallWidth: false,
-                isLargeWidth: !this.isSmallWidth,
-                checked:false
-            };
-        },
-        methods: {
-            asynDeleteItem() {
-                //{product_id:1,quantity:2,type="delete"}删除 此时quantity参数不影响结果
-                this.$store.dispatch('cart/delete', this.item)//先删除本地的
-                asynUpdate({product_id: this.item.id, quantity: this.item.quantity, type: 'delete'}).then(resp => {
-                    if (resp.status == 200) {
-                        if (resp.data.ret == 0)
-                            window.console.log("删除成功")
-                    }
-                })
-            },
-            asynUpdateItem() {
-                asynUpdate({product_id: this.item.id, quantity: this.item.quantity, type: 'update'}).then(resp => {
-                    if (resp.status == 200) {
-                        if (resp.data.ret == 0)
-                            window.console.log("更新成功")
-                    }
-                })
-            },
-            setSelected(){
-                if(this.checked)
-                    this.$store.commit('cart/selectItem',this.item)
-                else
-                    this.$store.commit('cart/notSelectItem',this.item)
-            }
-        },
-        mounted() {
-            if (this.screenWidth <= 992) {
-                this.isSmallWidth = true
-            }
-            this.isLargeWidth = !this.isSmallWidth
-            // alert(this.isLargeWidth+' '+this.isSmallWidth)
-        }
+export default {
+  name: "CartItem",
+  props: {
+    item: Object
+  },
+  data() {
+    return {
+      screenWidth: document.body.clientWidth,
+      isSmallWidth: false,
+      isLargeWidth: !this.isSmallWidth
     };
+  },
+  methods: {
+    add() {
+      if (this.item.quantity < 0) {
+        this.item.quantity = 0;
+      }
+      this.item.quantity++;
+      this.addup();
+    },
+    sub() {
+      if (this.item.quantity <= 0) {
+        alert("不能再减少数量啦！");
+        this.item.quantity = 0;
+      } else {
+        this.item.quantity--;
+      }
+    },
+    del() {
+      this.items.slice(this.item.id - 1, 1);
+    }
+  },
+  mounted() {
+    if (this.screenWidth <= 992) {
+      this.isSmallWidth = true;
+    }
+    this.isLargeWidth = !this.isSmallWidth;
+    // alert(this.isLargeWidth+' '+this.isSmallWidth)
+  }
+};
 </script>
 
 <style scoped>
