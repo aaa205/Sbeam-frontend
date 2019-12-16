@@ -5,7 +5,7 @@
             <div class="col-12 col-md-8 text-left">
                 <div class="join_box">
                     <b-row>
-                        <b-col>
+                        <b-col class="col-12 col-md-10">
                             <h5>创建账户</h5>
                             <b-form @submit="onSubmit">
                                 <b-form-group label="账户名" label-class="text-white" label-for="input-1" >

@@ -22,7 +22,7 @@
                             <div>欢迎，{{userName}}</div>
                         </template>
                         <b-img width="30" height="30" center rounded="circle" :src="this.avatar"></b-img>
-                        <b-dropdown-item href="#">我的订单</b-dropdown-item>
+                        <b-dropdown-item to="/order">我的订单</b-dropdown-item>
                         <b-dropdown-divider></b-dropdown-divider>
                         <b-dropdown-item @click="doLogout">注销</b-dropdown-item>
                     </b-nav-item-dropdown>
