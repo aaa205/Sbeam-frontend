@@ -65,10 +65,8 @@ div {
   text-decoration-line: underline;
 }
 .filters_line {
-        background-color: #dbdbdb;
+        background-color: #6f6f6f;
         height: 1px;
         border: none;
-
-
     }
 </style>

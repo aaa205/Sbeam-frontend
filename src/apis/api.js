@@ -42,3 +42,7 @@ export const buy = params => {
     return axios.post(`${host}/orders`, params,
         {withCredentials: true, headers: {'Content-Type': 'application/json'}})
 }
+//获取订单
+export const getOrders = () => {
+    return axios.get(`${host}/orders`, {withCredentials: true})
+}

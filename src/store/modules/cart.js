@@ -42,7 +42,7 @@ const actions = {
                 quantity:i.quantity
             }
         })
-        window.console.log("sel:" +selected)
+        window.console.log("sel:" +state.items)
         buy({items: selected}).then(resp => {
             if (resp.status == 200) {
                 selected.forEach(x => {
