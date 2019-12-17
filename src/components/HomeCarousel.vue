@@ -5,6 +5,7 @@
         v-for="(CarouselItem, index) in CarouselData"
         :key="index"
         :img-src="CarouselItem.imgSrc"
+        :caption="CarouselItem.Gname"
         class="sb-carousel-size"
       ></b-carousel-slide>
     </b-carousel>

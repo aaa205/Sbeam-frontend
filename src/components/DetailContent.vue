@@ -297,12 +297,15 @@
                         resp.data.img_1 = require('../assets/' + resp.data.img_1)
                         resp.data.img_2 = require('../assets/' + resp.data.img_2)
                         resp.data.img_3 = require('../assets/' + resp.data.img_3)
+                        let dd=new Date(resp.data.release_date)
+                        resp.data.release_date=dd.getFullYear()+"年"+dd.getMonth()+"月"+dd.getDate()+"日"
                         this.product = resp.data
                         this.carouselData = [
                             {id: 1, imgSrc: this.product.img_0,Gname:''},
                             {id: 2, imgSrc: this.product.img_1,Gname:''},
                             {id: 3, imgSrc: this.product.img_2,Gname:''},
                             {id: 4, imgSrc: this.product.img_3,Gname:''}]
+
                     } else if (resp.status == 404) {
                         //todo 以后加个404页面
                     }

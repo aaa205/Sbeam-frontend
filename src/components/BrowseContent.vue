@@ -35,9 +35,9 @@
                         </div>
                         <b-collapse id="collapse-0">
                             <b-list-group flush class="filters_list">
-                                <a href="#">
+                                <router-link to="/browse?kw=a">
                                     <b-list-group-item class="filters_item">动作</b-list-group-item>
-                                </a>
+                                </router-link>
                                 <a href="#">
                                     <b-list-group-item class="filters_item">冒险</b-list-group-item>
                                 </a>
