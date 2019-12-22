@@ -46,3 +46,7 @@ export const buy = params => {
 export const getOrders = () => {
     return axios.get(`${host}/orders`, {withCredentials: true})
 }
+//获取验证码
+export const getVerifyCodeImg=()=>{
+    return axios.get(`${host}/verifyCode`,{withCredentials:true})
+}
